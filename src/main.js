@@ -1,24 +1,45 @@
-import './style.css'
-import javascriptLogo from './javascript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.js'
+import { tourPackages } from "./data/tourPackage.js";
+import { testimonials } from "./data/testimonial.js";
 
-document.querySelector('#app').innerHTML = `
-  <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-      <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
-    </a>
-    <h1>Hello Vite!</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite logo to learn more
-    </p>
-  </div>
-`
+const tourPackagesGrid = document.getElementById('tour-packages-grid');
+const tourPackageCardTemplate = document.getElementById('tour-package-card');
 
-setupCounter(document.querySelector('#counter'))
+function renderTourPackageCards(){
+	tourPackagesGrid.innerHTML = '';
+
+	for (const tourPackage of tourPackages) {
+		const tourPackageCardClone = tourPackageCardTemplate.content.cloneNode(true);
+		
+		let packageBg = tourPackageCardClone.querySelector('.package-bg');
+		packageBg.src = tourPackage['background'];
+		packageBg.alt = tourPackage['alt'];
+
+		tourPackageCardClone.querySelector('.title').textContent = tourPackage['title'];
+		tourPackageCardClone.querySelector('.description').textContent = tourPackage['description'];
+		tourPackageCardClone.querySelector('.price').textContent = tourPackage['price'];
+
+		tourPackagesGrid.appendChild(tourPackageCardClone);
+	}
+}
+
+renderTourPackageCards();
+
+const testimonialsGrid = document.getElementById('testimonials-grid');
+const testimonialCardTemplate = document.getElementById('testimonial-card');
+
+function renderTestimonialCards(){
+	testimonialsGrid.innerHTML = ''
+
+	for (const testimonial of testimonials) {
+		const testimonialCardClone = testimonialCardTemplate.content.cloneNode(true);
+
+		testimonialCardClone.querySelector('.photo').src = testimonial['photo'];
+		testimonialCardClone.querySelector('.name').textContent = testimonial['name'];
+		testimonialCardClone.querySelector('.destination').textContent = testimonial['destination'];
+		testimonialCardClone.querySelector('.testimonial').textContent = testimonial['testimonial'];
+		
+		testimonialsGrid.appendChild(testimonialCardClone);
+	}
+}
+
+renderTestimonialCards();

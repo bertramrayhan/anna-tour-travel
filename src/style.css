@@ -1,3 +1,33 @@
 html {
     scroll-behavior: smooth;
 }
+
+/* Modal Styles */
+#tourModal {
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+}
+
+#tourModal.hidden {
+    display: none !important;
+}
+
+#tourModal.flex {
+    display: flex !important;
+}
+
+/* Ensure modal content is properly positioned */
+#tourModal > div {
+    max-width: 90vw;
+    max-height: 90vh;
+}
+
+/* Smooth transitions for modal */
+#tourModal {
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Ensure modal is above everything */
+#tourModal {
+    z-index: 9999;
+}
