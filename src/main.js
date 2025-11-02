@@ -7,6 +7,12 @@ const tourPackageCardTemplate = document.getElementById('tour-package-card');
 const testimonialsGrid = document.getElementById('testimonials-grid');
 const testimonialCardTemplate = document.getElementById('testimonial-card');
 
+const hamburgerButton = document.getElementById('hamburger-button');
+const mobileMenu = document.getElementById('mobile-menu');
+const menuIcon = document.getElementById('menu-icon');
+const menuOverlay = document.getElementById('menu-overlay');
+const closeMenuButton = document.getElementById('close-menu-button');
+const menuLinks = mobileMenu.querySelectorAll('a');
 
 function renderTourPackageCards(){
 	tourPackagesGrid.innerHTML = '';
@@ -43,56 +49,35 @@ function renderTestimonialCards(){
 	}
 }
 
-// Mobile menu functionality
-function initMobileMenu() {
-	const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
-	const mobileMenu = document.getElementById('mobile-menu');
-	const mobileMenuClose = document.getElementById('mobile-menu-close');
-	const mobileMenuLinks = document.querySelectorAll('#mobile-menu nav a');
+function openMenu(){
+	mobileMenu.classList.remove('translate-x-full');
+	menuOverlay.classList.remove('hidden');
+	document.body.style.overflow = 'hidden';
+}
 
-	// Check if elements exist (safety check)
-	if (!mobileMenuToggle || !mobileMenu || !mobileMenuClose) {
-		return;
-	}
-
-	// Open mobile menu
-	mobileMenuToggle.addEventListener('click', () => {
-		mobileMenu.style.transform = 'translateX(0)';
-		document.body.classList.add('overflow-hidden');
-	});
-
-	// Close mobile menu
-	function closeMobileMenu() {
-		mobileMenu.style.transform = 'translateX(-100%)';
-		document.body.classList.remove('overflow-hidden');
-	}
-
-	mobileMenuClose.addEventListener('click', closeMobileMenu);
-
-	// Close menu when clicking on navigation links
-	mobileMenuLinks.forEach(link => {
-		link.addEventListener('click', () => {
-			closeMobileMenu();
-		});
-	});
-
-	// Close menu when clicking outside (on overlay)
-	mobileMenu.addEventListener('click', (e) => {
-		if (e.target === mobileMenu) {
-			closeMobileMenu();
-		}
-	});
-
-	// Close menu when pressing Escape key
-	document.addEventListener('keydown', (e) => {
-		if (e.key === 'Escape' && mobileMenu.style.transform === 'translateX(0px)') {
-			closeMobileMenu();
-		}
-	});
+function closeMenu(){
+	mobileMenu.classList.add('translate-x-full');
+	menuOverlay.classList.add('hidden');
+	document.body.style.overflow = ''; // Mengizinkan scroll kembali
 }
 
 document.addEventListener('DOMContentLoaded', () => {
 	renderTestimonialCards();
 	renderTourPackageCards();
-	initMobileMenu();
+
+	hamburgerButton.addEventListener('click', openMenu);
+
+	closeMenuButton.addEventListener('click', closeMenu);
+
+	menuOverlay.addEventListener('click', closeMenu);
+
+	menuLinks.forEach(link => {
+		link.addEventListener('click', closeMenu);
+	});
+
+	document.addEventListener('keydown', function (event) {
+		if (event.key === 'Escape' && !mobileMenu.classList.contains('translate-x-full')) {
+		closeMenu();
+		}
+	});
 });

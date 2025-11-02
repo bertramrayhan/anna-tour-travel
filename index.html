@@ -12,7 +12,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;family=Montserrat:wght@400;500;700&amp;family=Poppins:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
   </head>
+
   <body class="bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark font-display">
+    <div class="hidden fixed inset-0 bg-black/30 z-40" id="menu-overlay"></div>
+
     <!-- Sticky Header -->
     <header class="sticky top-0 z-50 flex items-center justify-between whitespace-nowrap border-b border-solid border-gray-200/80 dark:border-gray-700/80 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm px-4 sm:px-8 lg:px-16 py-3" id="home">
       <div class="flex items-center gap-3">
@@ -35,42 +38,29 @@
         <a class="text-sm font-medium hover:text-primary transition-colors" href="#testimonials">Testimonials</a>
         <a class="text-sm font-medium hover:text-primary transition-colors" href="#contact">Contact</a>
       </nav>
-      <button class="md:hidden p-2" id="mobile-menu-toggle">
+      <button class="md:hidden p-2" id="hamburger-button">
         <span class="material-symbols-outlined">menu</span>
       </button>
-      
-      <!-- Mobile Menu -->
-      <div class="md:hidden fixed top-0 left-0 w-full h-screen bg-background-light dark:bg-background-dark z-50 transform -translate-x-full transition-transform duration-300 ease-in-out" id="mobile-menu"
-           style="transform: translateX(-100%);">
-        <div class="flex flex-col h-full">
-          <div class="flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-700">
-            <div class="flex items-center gap-3">
-              <div class="size-6 text-secondary">
-                <svg fill="currentColor" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-                  <g clip-path="url(#clip0_6_330_mobile)">
-                    <path clip-rule="evenodd" d="M24 0.757355L47.2426 24L24 47.2426L0.757355 24L24 0.757355ZM21 35.7574V12.2426L9.24264 24L21 35.7574Z" fill-rule="evenodd"></path>
-                  </g>
-                  <defs>
-                    <clippath id="clip0_6_330_mobile"><rect fill="white" height="48" width="48"></rect></clippath>
-                  </defs>
-                </svg>
-              </div>
-              <h2 class="text-lg font-bold">Anna Tour Travel</h2>
-            </div>
-            <button class="p-2" id="mobile-menu-close">
-              <span class="material-symbols-outlined">close</span>
+    </header>
+
+    <!-- Menu Samping Vertikal (Side Drawer) -->
+    <div id="mobile-menu" class="fixed top-0 right-0 h-screen w-64 bg-background-light dark:bg-background-dark shadow-lg z-50 transform translate-x-full transition-transform duration-300 ease-in-out">
+      <div class="flex flex-col p-4">
+        <div class="flex justify-between items-center mb-6">
+            <h3 class="text-lg font-bold">Menu</h3>
+            <button id="close-menu-button" class="p-2 -mr-2">
+                <span class="material-symbols-outlined">close</span>
             </button>
-          </div>
-          <nav class="flex flex-col p-4 space-y-4">
-            <a class="text-lg font-medium hover:text-primary transition-colors py-3 border-b border-gray-100 dark:border-gray-800" href="#about">About Us</a>
-            <a class="text-lg font-medium hover:text-primary transition-colors py-3 border-b border-gray-100 dark:border-gray-800" href="#packages">Tour Packages</a>
-            <a class="text-lg font-medium hover:text-primary transition-colors py-3 border-b border-gray-100 dark:border-gray-800" href="#testimonials">Testimonials</a>
-            <a class="text-lg font-medium hover:text-primary transition-colors py-3" href="#contact">Contact</a>
-          </nav>
+        </div>
+        <div class="flex flex-col gap-4">
+          <a class="block py-2 text-base hover:text-primary" href="#about">About Us</a>
+          <a class="block py-2 text-base hover:text-primary" href="#packages">Tour Packages</a>
+          <a class="block py-2 text-base hover:text-primary" href="#testimonials">Testimonials</a>
+          <a class="block py-2 text-base hover:text-primary" href="#contact">Contact</a>
         </div>
       </div>
-    </header>
-    
+    </div>
+
     <main class="flex flex-col">
       <!-- Hero Section -->
       <section class="relative">
