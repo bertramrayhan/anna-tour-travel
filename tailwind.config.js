@@ -14,9 +14,17 @@ export default {
         "background-dark": "#111c21",
         "text-light": "#333333",
         "text-dark": "#f0f0f0",
+        "accent-magenta": "#A43A81",
+        "professional-blue": "#2A7ABC",
+        "neutral-dark": "#333333",
+        "neutral-light": "#F4F4F4",
+        "success-green": "#28A745",
+        "error-red": "#DC3545",
       },
       fontFamily: {
-        "display": ["Plus Jakarta Sans", "sans-serif"]
+        "display": ["Plus Jakarta Sans", "sans-serif"],
+        "poppins": ["Poppins", "sans-serif"],
+        "montserrat": ["Montserrat", "sans-serif"]
       },
       borderRadius: {
         "DEFAULT": "0.25rem", 

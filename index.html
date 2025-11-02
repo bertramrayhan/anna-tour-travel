@@ -9,7 +9,7 @@
     <link href="./src/style.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com" rel="preconnect"/>
     <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;family=Montserrat:wght@400;500;700&amp;family=Poppins:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
   </head>
   <body class="bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark font-display">
@@ -35,9 +35,40 @@
         <a class="text-sm font-medium hover:text-primary transition-colors" href="#testimonials">Testimonials</a>
         <a class="text-sm font-medium hover:text-primary transition-colors" href="#contact">Contact</a>
       </nav>
-      <button class="md:hidden p-2">
+      <button class="md:hidden p-2" id="mobile-menu-toggle">
         <span class="material-symbols-outlined">menu</span>
       </button>
+      
+      <!-- Mobile Menu -->
+      <div class="md:hidden fixed top-0 left-0 w-full h-screen bg-background-light dark:bg-background-dark z-50 transform -translate-x-full transition-transform duration-300 ease-in-out" id="mobile-menu"
+           style="transform: translateX(-100%);">
+        <div class="flex flex-col h-full">
+          <div class="flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-700">
+            <div class="flex items-center gap-3">
+              <div class="size-6 text-secondary">
+                <svg fill="currentColor" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                  <g clip-path="url(#clip0_6_330_mobile)">
+                    <path clip-rule="evenodd" d="M24 0.757355L47.2426 24L24 47.2426L0.757355 24L24 0.757355ZM21 35.7574V12.2426L9.24264 24L21 35.7574Z" fill-rule="evenodd"></path>
+                  </g>
+                  <defs>
+                    <clippath id="clip0_6_330_mobile"><rect fill="white" height="48" width="48"></rect></clippath>
+                  </defs>
+                </svg>
+              </div>
+              <h2 class="text-lg font-bold">Anna Tour Travel</h2>
+            </div>
+            <button class="p-2" id="mobile-menu-close">
+              <span class="material-symbols-outlined">close</span>
+            </button>
+          </div>
+          <nav class="flex flex-col p-4 space-y-4">
+            <a class="text-lg font-medium hover:text-primary transition-colors py-3 border-b border-gray-100 dark:border-gray-800" href="#about">About Us</a>
+            <a class="text-lg font-medium hover:text-primary transition-colors py-3 border-b border-gray-100 dark:border-gray-800" href="#packages">Tour Packages</a>
+            <a class="text-lg font-medium hover:text-primary transition-colors py-3 border-b border-gray-100 dark:border-gray-800" href="#testimonials">Testimonials</a>
+            <a class="text-lg font-medium hover:text-primary transition-colors py-3" href="#contact">Contact</a>
+          </nav>
+        </div>
+      </div>
     </header>
     
     <main class="flex flex-col">
@@ -225,6 +256,7 @@
         </svg>
       </a>
 
+
       <!-- TEMPLATE -->
       
       <template id="tour-package-card">
@@ -235,7 +267,7 @@
             <p class="mt-2 text-sm text-text-light/70 dark:text-text-dark/70 flex-grow description">Experience the magic of Bali, from its serene temples to vibrant beaches and lush rice terraces.</p>
             <div class="mt-4 flex items-center justify-between">
               <span class="text-lg font-bold text-primary"><span class="price">$599</span> / person</span>
-              <button class="rounded-lg bg-secondary/10 px-4 py-2 text-sm font-bold text-secondary hover:bg-secondary/20 transition-colors">View Details</button>
+              <button class="rounded-lg bg-secondary/10 px-4 py-2 text-sm font-bold text-secondary hover:bg-secondary/20 transition-colors btn-view">View Details</button>
             </div>
           </div>
         </div>
@@ -254,8 +286,139 @@
           </div>
       </template>
 
+
+    <!-- Tour Package Detail Modal -->
+    <div id="tour-modal" class="fixed inset-0 z-50 flex min-h-screen w-full items-center justify-center bg-neutral-dark/50 p-4 font-montserrat hidden">
+      <!-- Modal Container -->
+      <div class="layout-container flex w-full max-w-4xl flex-col overflow-hidden rounded-xl bg-white shadow-2xl dark:bg-neutral-dark">
+        <div class="relative max-h-[90vh] overflow-y-auto">
+          <!-- Close Button -->
+          <button id="close-modal" class="absolute right-4 top-4 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-black/30 text-white transition-colors hover:bg-black/50">
+            <span class="material-symbols-outlined text-xl">close</span>
+          </button>
+          <!-- Main Content Grid -->
+          <div class="grid grid-cols-1 lg:grid-cols-2">
+            <!-- Left Column: Image -->
+            <div class="relative h-64 lg:h-auto">
+              <div id="modal-image" class="absolute inset-0 bg-cover bg-center" data-alt="Vibrant coral reef in Raja Ampat, Indonesia with clear blue water and diverse marine life." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBJOQgtMOHSMZ_p4-qbF6aFmCOQZAFhpmkx5m9UvdvzZeZkWWHdgVgIoEajzxkUHakIF3jGHbqUo1A9Ktc2ecZ2Kb_gVDOo_XgH2uy7xo8XrbvDXb1WtUWuwH6xktAQZleyMk1-euCb1TSvMBMM3-3w8UamHxJQryRte9jQhiv6yhYEe1NERA8Wny0abh9K80YIxlyUm_8mVarpFsZnR_BjRQpGgZnJZQIENOT4QkZaX5HHaQ4aMG3JieQgKxTMd2VGJod6BZIJt2Db");'></div>
+            </div>
+            <!-- Right Column: Summary -->
+            <div class="flex flex-col p-6 sm:p-8">
+              <h1 class="font-poppins text-3xl font-bold tracking-tight text-neutral-dark dark:text-white">from <span id="modal-price">$1200</span> / person</h1>
+              <div class="my-6">
+                <a class="flex h-12 w-full min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg bg-accent-magenta px-5 text-white text-base font-bold leading-normal tracking-[0.015em] transition-transform hover:scale-105" id="modal-order">
+                  <span class="truncate">Book via WhatsApp</span>
+                </a>
+              </div>
+              <div class="flex flex-col gap-4">
+                <!-- List Item: Duration -->
+                <div class="flex items-center gap-4">
+                  <div class="text-professional-blue flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-professional-blue/10">
+                    <span class="material-symbols-outlined">calendar_month</span>
+                  </div>
+                  <p class="flex-1 truncate text-base font-medium text-neutral-dark dark:text-neutral-light"><span id="modal-duration-day">5</span> Days, <span id="modal-duration-night">4</span> Nights</p>
+                </div>
+                <!-- List Item: Tour Type -->
+                <div class="flex items-center gap-4">
+                  <div class="text-professional-blue flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-professional-blue/10">
+                    <span class="material-symbols-outlined">explore</span>
+                  </div>
+                  <p id="modal-type" class="flex-1 truncate text-base font-medium text-neutral-dark dark:text-neutral-light">Diving, Adventure</p>
+                </div>
+                <!-- List Item: Destination -->
+                <div class="flex items-center gap-4">
+                  <div class="text-professional-blue flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-professional-blue/10">
+                    <span class="material-symbols-outlined">location_on</span>
+                  </div>
+                  <p id="modal-destination" class="flex-1 truncate text-base font-medium text-neutral-dark dark:text-neutral-light">Raja Ampat, Indonesia</p>
+                </div>
+                <!-- List Item: Group Size -->
+                <div class="flex items-center gap-4">
+                  <div class="text-professional-blue flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-professional-blue/10">
+                    <span class="material-symbols-outlined">groups</span>
+                  </div>
+                  <p id="modal-group-size" class="flex-1 truncate text-base font-medium text-neutral-dark dark:text-neutral-light">Max 12 people</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Divider -->
+          <div class="px-6 sm:px-8">
+            <hr class="border-t border-neutral-light dark:border-white/10"/>
+          </div>
+          <!-- Detailed Information Section -->
+          <div class="space-y-8 p-6 sm:p-8">
+            <!-- Tour Description -->
+            <div class="space-y-2">
+              <h2 class="font-poppins text-xl font-bold text-neutral-dark dark:text-white">Tour Description</h2>
+              <p id="modal-description" class="text-base text-neutral-dark/80 dark:text-neutral-light/80">Embark on an unforgettable journey to the heart of the Coral Triangle. Raja Ampat offers a world-class diving experience with breathtaking underwater biodiversity. Explore pristine coral reefs, encounter majestic manta rays, and relax on untouched white-sand beaches. This adventure is perfect for both seasoned divers and nature enthusiasts seeking a remote paradise.</p>
+            </div>
+            <!-- Itinerary Accordion -->
+            <div class="space-y-2">
+              <h2 class="font-poppins text-xl font-bold text-neutral-dark dark:text-white">Your Day-by-Day Itinerary</h2>
+              <div id="modal-itinerary" class="space-y-2">
+                
+              </div>
+            </div>
+            <!-- Facilities -->
+            <div class="space-y-4">
+              <h2 class="font-poppins text-xl font-bold text-neutral-dark dark:text-white">What's Included?</h2>
+              <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-8">
+                <!-- Included -->
+                <div class="space-y-3">
+                  <h3 class="font-poppins font-semibold text-neutral-dark dark:text-white">Included</h3>
+                  <ul id="modal-included" class="space-y-2">
+
+                  </ul>
+                </div>
+                <!-- Not Included -->
+                <div class="space-y-3">
+                  <h3 class="font-poppins font-semibold text-neutral-dark dark:text-white">Not Included</h3>
+                  <ul id="modal-not-included" class="space-y-2">
+
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <!-- Final Contact Link -->
+            <div class="text-center">
+              <p class="text-sm text-neutral-dark/70 dark:text-neutral-light/70">
+                Have questions about this tour? 
+                <a class="font-semibold text-professional-blue hover:underline" href="https://wa.me/6282244911101">Contact Us</a>.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TEMPLATE -->
+    <template id="itinerary-template">
+      <details class="group rounded-lg bg-neutral-light dark:bg-white/5">
+        <summary class="flex cursor-pointer list-none items-center justify-between p-4 font-semibold text-neutral-dark dark:text-white">
+          <span>Day <span class="day-count">1</span>: <span class="itinerary-title">Arrival and Exploration</span></span>
+          <span class="material-symbols-outlined">expand_more</span>
+        </summary>
+        <p class="px-4 py-4 text-neutral-dark/80 dark:text-neutral-light/80 itinerary-description">Arrive at Sorong, meet our team, and transfer to your liveaboard. Settle in and enjoy a welcome briefing before our first checkout dive in the afternoon.</p>
+      </details>
+    </template>
+
+    <template id="included-template">
+      <li class="flex items-start gap-3">
+        <span class="material-symbols-outlined mt-0.5 text-success-green">check_circle</span>
+        <span class="text-neutral-dark/80 dark:text-neutral-light/80 included-text">4 nights accommodation on liveaboard</span>
+      </li>
+    </template>
+
+    <template id="not-included-template">
+      <li class="flex items-start gap-3">
+        <span class="material-symbols-outlined mt-0.5 text-error-red">cancel</span>
+        <span class="text-neutral-dark/80 dark:text-neutral-light/80 not-included-text">Round-trip airfare</span>
+      </li>
+    </template>
+
     <!-- External JavaScript -->
-    <!-- <script src="./src/modal.js"></script> -->
+    <script type="module" src="./src/modal.js"></script>
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
