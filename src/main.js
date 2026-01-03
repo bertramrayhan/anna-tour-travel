@@ -3,25 +3,6 @@ import { populateCharters } from './utils/charterVehicleUtils.js';
 import { populateHalamanUtama } from "./utils/halamanUtamaUtils.js";
 import { populateTourPackages } from './utils/tourPackageUtils.js';
 
-// const hamburgerButton = document.getElementById('hamburger-button');
-// const mobileMenu = document.getElementById('mobile-menu');
-// const menuIcon = document.getElementById('menu-icon');
-// const menuOverlay = document.getElementById('menu-overlay');
-// const closeMenuButton = document.getElementById('close-menu-button');
-// const menuLinks = mobileMenu.querySelectorAll('a');
-
-// function openMenu(){
-// 	mobileMenu.classList.remove('translate-x-full');
-// 	menuOverlay.classList.remove('hidden');
-// 	document.body.style.overflow = 'hidden';
-// }
-
-// function closeMenu(){
-// 	mobileMenu.classList.add('translate-x-full');
-// 	menuOverlay.classList.add('hidden');
-// 	document.body.style.overflow = ''; // Mengizinkan scroll kembali
-// }
-
 export let nomorTelp = null; 
 
 async function getHalamanUtama() {
@@ -74,25 +55,109 @@ function loadContent(content){
 	populateCharters(content.chartersData, whatsappTemplate);
 }
 
+function initMobileMenu() {
+	const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+	const mobileMenu = document.getElementById('mobile-menu');
+	const mobileMenuPanel = document.getElementById('mobile-menu-panel');
+	const mobileMenuClose = document.getElementById('mobile-menu-close');
+	const hamburgerIcon = document.getElementById('hamburger-icon');
+	const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link');
+	const mobileContactBtn = document.getElementById('mobile-contact-btn');
+	const contactBtn = document.getElementById('contact-btn');
+
+	// Set mobile contact button href sama dengan desktop contact button
+	if (contactBtn && mobileContactBtn) {
+		mobileContactBtn.href = contactBtn.href;
+	}
+
+	// Toggle mobile menu with hamburger button
+	mobileMenuBtn?.addEventListener('click', () => {
+		const isOpen = mobileMenu.classList.contains('mobile-menu-open');
+		
+		if (isOpen) {
+			closeMobileMenu();
+		} else {
+			openMobileMenu();
+		}
+	});
+
+	// Close menu with close button
+	mobileMenuClose?.addEventListener('click', () => {
+		closeMobileMenu();
+	});
+
+	// Close menu when clicking overlay
+	mobileMenu?.addEventListener('click', (e) => {
+		if (e.target === mobileMenu) {
+			closeMobileMenu();
+		}
+	});
+
+	// Close menu when clicking navigation links
+	mobileMenuLinks.forEach(link => {
+		link.addEventListener('click', () => {
+			closeMobileMenu();
+		});
+	});
+
+	// Close menu when clicking mobile contact button
+	mobileContactBtn?.addEventListener('click', () => {
+		closeMobileMenu();
+	});
+
+	function openMobileMenu() {
+		mobileMenu.classList.add('mobile-menu-open');
+		mobileMenu.style.opacity = '1';
+		mobileMenu.style.visibility = 'visible';
+		
+		// Animate panel slide in
+		setTimeout(() => {
+			mobileMenuPanel.style.transform = 'translateX(0)';
+		}, 10);
+		
+		// Animate hamburger icon
+		hamburgerIcon.textContent = 'close';
+		hamburgerIcon.style.transform = 'rotate(180deg)';
+		
+		// Prevent body scroll
+		document.body.style.overflow = 'hidden';
+	}
+
+	function closeMobileMenu() {
+		// Animate panel slide out
+		mobileMenuPanel.style.transform = 'translateX(100%)';
+		
+		// Hide overlay after animation
+		setTimeout(() => {
+			mobileMenu.classList.remove('mobile-menu-open');
+			mobileMenu.style.opacity = '0';
+			mobileMenu.style.visibility = 'hidden';
+		}, 300);
+		
+		// Reset hamburger icon
+		hamburgerIcon.textContent = 'menu';
+		hamburgerIcon.style.transform = 'rotate(0deg)';
+		
+		// Restore body scroll
+		document.body.style.overflow = '';
+	}
+
+	// Close menu on escape key
+	document.addEventListener('keydown', (e) => {
+		if (e.key === 'Escape' && mobileMenu.classList.contains('mobile-menu-open')) {
+			closeMobileMenu();
+		}
+	});
+
+	// Close menu on window resize to desktop size
+	window.addEventListener('resize', () => {
+		if (window.innerWidth >= 768 && mobileMenu.classList.contains('mobile-menu-open')) {
+			closeMobileMenu();
+		}
+	});
+}
+
 document.addEventListener('DOMContentLoaded', () => {
-	// renderTestimonialCards();
-	// renderTourPackageCards();
-
-	// hamburgerButton.addEventListener('click', openMenu);
-
-	// closeMenuButton.addEventListener('click', closeMenu);
-
-	// menuOverlay.addEventListener('click', closeMenu);
-
-	// menuLinks.forEach(link => {
-	// 	link.addEventListener('click', closeMenu);
-	// });
-
-	// document.addEventListener('keydown', function (event) {
-	// 	if (event.key === 'Escape' && !mobileMenu.classList.contains('translate-x-full')) {
-	// 	closeMenu();
-	// 	}
-	// });
-
 	getContent();
+	initMobileMenu();
 });

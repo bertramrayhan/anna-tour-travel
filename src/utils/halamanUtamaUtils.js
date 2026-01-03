@@ -3,7 +3,13 @@ import { urlFor } from '../sanityClient.js';
 
 export function populateHalamanUtama(halamanUtamaContent){
     const contactBtn = document.getElementById('contact-btn');
-    contactBtn.href = convertTextToWhatsapp('');
+    const mobileContactBtn = document.getElementById('mobile-contact-btn');
+    const whatsappLink = convertTextToWhatsapp('');
+    
+    contactBtn.href = whatsappLink;
+    if (mobileContactBtn) {
+        mobileContactBtn.href = whatsappLink;
+    }
 
     populateFooter(halamanUtamaContent);
     populateHero(halamanUtamaContent);

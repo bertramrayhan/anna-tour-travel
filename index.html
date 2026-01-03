@@ -29,11 +29,65 @@
                 <a id="contact-btn" target="_blank" class="hidden md:flex items-center justify-center rounded-lg h-10 px-6 bg-primary hover:bg-primary/90 text-white text-sm font-bold shadow-md transition-all">
                     Hubungi Kami
                 </a>
-                <button class="md:hidden text-[#181510]">
-                    <span class="material-symbols-outlined">menu</span>
+                <button id="mobile-menu-btn" class="md:hidden text-[#181510] z-50 relative">
+                    <span id="hamburger-icon" class="material-symbols-outlined transition-transform duration-300">menu</span>
                 </button>
             </div>
         </header>
+        
+        <!-- Mobile Menu - Fixed Outside Header -->
+        <div id="mobile-menu" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-[60] opacity-0 invisible transition-all duration-300 md:hidden">
+            <div id="mobile-menu-panel" class="fixed right-0 top-0 h-full w-80 bg-white shadow-2xl transform translate-x-full transition-transform duration-300 ease-in-out">
+                <div class="flex flex-col h-full">
+                    <!-- Header Mobile Menu -->
+                    <div class="flex items-center justify-between p-6 border-b border-[#f5f3f0]">
+                        <div class="flex items-center gap-3">
+                            <div class="size-8 text-primary">
+                                <span class="material-symbols-outlined text-3xl">travel_explore</span>
+                            </div>
+                            <h3 class="text-[#181510] text-lg font-bold">Anna Tour Travel</h3>
+                        </div>
+                        <button id="mobile-menu-close" class="size-8 rounded-full hover:bg-gray-100 flex items-center justify-center text-gray-500 hover:text-[#181510] transition-colors">
+                            <span class="material-symbols-outlined text-2xl">close</span>
+                        </button>
+                    </div>
+                    
+                    <!-- Navigation Links -->
+                    <nav class="flex-1 py-8">
+                        <div class="flex flex-col gap-2 px-6">
+                            <a href="#about" class="mobile-menu-link flex items-center gap-4 text-[#181510] text-lg font-medium py-4 px-4 rounded-lg hover:bg-background-light hover:text-primary transition-colors">
+                                <span class="material-symbols-outlined text-2xl">info</span>
+                                About
+                            </a>
+                            <a href="#packages" class="mobile-menu-link flex items-center gap-4 text-[#181510] text-lg font-medium py-4 px-4 rounded-lg hover:bg-background-light hover:text-primary transition-colors">
+                                <span class="material-symbols-outlined text-2xl">card_travel</span>
+                                Paket Wisata
+                            </a>
+                            <a href="#charter" class="mobile-menu-link flex items-center gap-4 text-[#181510] text-lg font-medium py-4 px-4 rounded-lg hover:bg-background-light hover:text-primary transition-colors">
+                                <span class="material-symbols-outlined text-2xl">directions_bus</span>
+                                Charter
+                            </a>
+                            <a href="#testimonials" class="mobile-menu-link flex items-center gap-4 text-[#181510] text-lg font-medium py-4 px-4 rounded-lg hover:bg-background-light hover:text-primary transition-colors">
+                                <span class="material-symbols-outlined text-2xl">reviews</span>
+                                Testimonials
+                            </a>
+                            <a href="#contact" class="mobile-menu-link flex items-center gap-4 text-[#181510] text-lg font-medium py-4 px-4 rounded-lg hover:bg-background-light hover:text-primary transition-colors">
+                                <span class="material-symbols-outlined text-2xl">contact_phone</span>
+                                Kontak
+                            </a>
+                        </div>
+                    </nav>
+                    
+                    <!-- CTA Button -->
+                    <div class="p-6 border-t border-[#f5f3f0]">
+                        <a id="mobile-contact-btn" target="_blank" class="flex items-center justify-center gap-3 w-full rounded-lg h-12 px-6 bg-primary hover:bg-primary/90 text-white text-lg font-bold shadow-md transition-all">
+                            <span class="material-symbols-outlined">chat</span>
+                            Hubungi Kami
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
         <section id="hero-container" class="relative min-h-[600px] flex items-center justify-center bg-cover bg-center" data-alt="Stunning aerial view of Indonesian islands and turquoise water">
             <div class="max-w-7xl w-full px-4 md:px-10 py-12 grid lg:grid-cols-2 gap-12 items-center">
                 <div class="flex flex-col gap-6 text-left">
@@ -47,7 +101,7 @@
             </div>
         </section>
         <section class="max-w-7xl mx-auto w-full px-4 md:px-10 py-16 md:py-24" id="about">
-            <div class="grid md:grid-cols-2 gap-8 rounded-3xl overflow-hidden shadow-xl bg-tertiary">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 rounded-3xl overflow-hidden shadow-xl bg-tertiary">
                 <div class="p-8 md:p-12 flex flex-col justify-center gap-8">
                     <div>
                         <h2 class="text-white text-3xl md:text-4xl font-bold mb-4">Kenapa Memilih Anna Tour?</h2>
@@ -83,7 +137,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="relative bg-white hidden md:block min-h-[500px]">
+                
+                <!-- Video Section - Responsive untuk mobile dan desktop -->
+                <div class="relative bg-white min-h-[300px] md:min-h-[500px]">
 					<iframe
 					class="absolute inset-0 w-full h-full"
 					src="https://www.youtube.com/embed/gQV0s4vPTzI?autoplay=1&mute=1&loop=1&controls=0&modestbranding=1&rel=0&playsinline=1&playlist=gQV0s4vPTzI"
@@ -94,7 +150,7 @@
 					</iframe>
 
 					<!-- overlay biar teks kiri tetep kontras -->
-					<div class="absolute inset-0 bg-gradient-to-l from-transparent to-black/20 pointer-events-none"></div>
+					<div class="absolute inset-0 bg-gradient-to-l md:bg-gradient-to-l from-transparent to-black/20 md:from-transparent md:to-black/20 pointer-events-none"></div>
                 </div>
             </div>
         </section>
