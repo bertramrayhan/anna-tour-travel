@@ -1,83 +1,98 @@
-import { tourPackages } from "./data/tourPackage.js";
-import { testimonials } from "./data/testimonial.js";
+import { client } from './sanityClient.js';
+import { populateCharters } from './utils/charterVehicleUtils.js';
+import { populateHalamanUtama } from "./utils/halamanUtamaUtils.js";
+import { populateTourPackages } from './utils/tourPackageUtils.js';
 
-const tourPackagesGrid = document.getElementById('tour-packages-grid');
-const tourPackageCardTemplate = document.getElementById('tour-package-card');
+// const hamburgerButton = document.getElementById('hamburger-button');
+// const mobileMenu = document.getElementById('mobile-menu');
+// const menuIcon = document.getElementById('menu-icon');
+// const menuOverlay = document.getElementById('menu-overlay');
+// const closeMenuButton = document.getElementById('close-menu-button');
+// const menuLinks = mobileMenu.querySelectorAll('a');
 
-const testimonialsGrid = document.getElementById('testimonials-grid');
-const testimonialCardTemplate = document.getElementById('testimonial-card');
+// function openMenu(){
+// 	mobileMenu.classList.remove('translate-x-full');
+// 	menuOverlay.classList.remove('hidden');
+// 	document.body.style.overflow = 'hidden';
+// }
 
-const hamburgerButton = document.getElementById('hamburger-button');
-const mobileMenu = document.getElementById('mobile-menu');
-const menuIcon = document.getElementById('menu-icon');
-const menuOverlay = document.getElementById('menu-overlay');
-const closeMenuButton = document.getElementById('close-menu-button');
-const menuLinks = mobileMenu.querySelectorAll('a');
+// function closeMenu(){
+// 	mobileMenu.classList.add('translate-x-full');
+// 	menuOverlay.classList.add('hidden');
+// 	document.body.style.overflow = ''; // Mengizinkan scroll kembali
+// }
 
-function renderTourPackageCards(){
-	tourPackagesGrid.innerHTML = '';
+export let nomorTelp = null; 
 
-	for (const tourPackage of tourPackages) {
-		const tourPackageCardClone = tourPackageCardTemplate.content.cloneNode(true);
-		
-		let packageBg = tourPackageCardClone.querySelector('.package-bg');
-		packageBg.src = tourPackage['background'];
-		packageBg.alt = tourPackage['alt'];
+async function getHalamanUtama() {
+  const query = `*[_type == "halamanUtama"][0]`;
 
-		tourPackageCardClone.querySelector('.title').textContent = tourPackage['title'];
-		tourPackageCardClone.querySelector('.description').textContent = tourPackage['description'];
-		tourPackageCardClone.querySelector('.price').textContent = tourPackage['price'];
+  const content = await client.fetch(query);
+  return content;
+}
 
-		tourPackageCardClone.querySelector('.btn-view').setAttribute('data-id', tourPackage['id']);
+async function getTourPackages() {
+  const query = `*[_type == "tourPackage"] | order(isPopular desc, _createdAt desc)`;
 
-		tourPackagesGrid.appendChild(tourPackageCardClone);
+  const content = await client.fetch(query);
+  return content;
+}
+
+async function getCharter() {
+  const query = `*[_type == "charterVehicle"] | order(isPopular desc, _createdAt desc)`;
+
+  const content = await client.fetch(query);
+  return content;
+}
+
+async function getContent(){
+	try {
+		const [halamanUtamaContent, tourPackagesData, chartersData] = await Promise.all([
+			getHalamanUtama(),
+			getTourPackages(),
+			getCharter()
+		]);
+
+		const content = {
+			halamanUtamaContent: halamanUtamaContent,
+			tourPackagesData: tourPackagesData,
+			chartersData: chartersData
+		}
+
+		nomorTelp = halamanUtamaContent.nomor_telepon;
+
+		loadContent(content)
+	} catch (error) {
+		console.error("Error di dalam getContent:", error);
 	}
 }
 
-function renderTestimonialCards(){
-	testimonialsGrid.innerHTML = ''
-
-	for (const testimonial of testimonials) {
-		const testimonialCardClone = testimonialCardTemplate.content.cloneNode(true);
-
-		testimonialCardClone.querySelector('.photo').src = testimonial['photo'];
-		testimonialCardClone.querySelector('.name').textContent = testimonial['name'];
-		testimonialCardClone.querySelector('.destination').textContent = testimonial['destination'];
-		testimonialCardClone.querySelector('.testimonial').textContent = testimonial['testimonial'];
-		
-		testimonialsGrid.appendChild(testimonialCardClone);
-	}
-}
-
-function openMenu(){
-	mobileMenu.classList.remove('translate-x-full');
-	menuOverlay.classList.remove('hidden');
-	document.body.style.overflow = 'hidden';
-}
-
-function closeMenu(){
-	mobileMenu.classList.add('translate-x-full');
-	menuOverlay.classList.add('hidden');
-	document.body.style.overflow = ''; // Mengizinkan scroll kembali
+function loadContent(content){
+	const whatsappTemplate = content.halamanUtamaContent.whatsappTemplate;
+	populateHalamanUtama(content.halamanUtamaContent);
+	populateTourPackages(content.tourPackagesData, whatsappTemplate);
+	populateCharters(content.chartersData, whatsappTemplate);
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-	renderTestimonialCards();
-	renderTourPackageCards();
+	// renderTestimonialCards();
+	// renderTourPackageCards();
 
-	hamburgerButton.addEventListener('click', openMenu);
+	// hamburgerButton.addEventListener('click', openMenu);
 
-	closeMenuButton.addEventListener('click', closeMenu);
+	// closeMenuButton.addEventListener('click', closeMenu);
 
-	menuOverlay.addEventListener('click', closeMenu);
+	// menuOverlay.addEventListener('click', closeMenu);
 
-	menuLinks.forEach(link => {
-		link.addEventListener('click', closeMenu);
-	});
+	// menuLinks.forEach(link => {
+	// 	link.addEventListener('click', closeMenu);
+	// });
 
-	document.addEventListener('keydown', function (event) {
-		if (event.key === 'Escape' && !mobileMenu.classList.contains('translate-x-full')) {
-		closeMenu();
-		}
-	});
+	// document.addEventListener('keydown', function (event) {
+	// 	if (event.key === 'Escape' && !mobileMenu.classList.contains('translate-x-full')) {
+	// 	closeMenu();
+	// 	}
+	// });
+
+	getContent();
 });

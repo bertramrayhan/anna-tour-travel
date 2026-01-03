@@ -26,21 +26,21 @@
                     <a class="text-[#181510] text-sm font-medium hover:text-primary transition-colors" href="#testimonials">Testimonials</a>
                     <a class="text-[#181510] text-sm font-medium hover:text-primary transition-colors" href="#contact">Kontak</a>
                 </nav>
-                <button class="hidden md:flex items-center justify-center rounded-lg h-10 px-6 bg-primary hover:bg-primary/90 text-white text-sm font-bold shadow-md transition-all">
+                <a id="contact-btn" target="_blank" class="hidden md:flex items-center justify-center rounded-lg h-10 px-6 bg-primary hover:bg-primary/90 text-white text-sm font-bold shadow-md transition-all">
                     Hubungi Kami
-                </button>
+                </a>
                 <button class="md:hidden text-[#181510]">
                     <span class="material-symbols-outlined">menu</span>
                 </button>
             </div>
         </header>
-        <section class="relative min-h-[600px] flex items-center justify-center bg-cover bg-center" data-alt="Stunning aerial view of Indonesian islands and turquoise water" style="background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4)), url('https://lh3.googleusercontent.com/aida-public/AB6AXuDd2rn15a0PHtC6JUPInokTNokIIJC5ad1jWAYL_4OiX6QX4zdlfq6YB2Zr8B3DvW-QL5mGYzpIU6O-Y5DBW2qRCRlxV-QxRUPwiCLHL5cTpP1BC5o0iMQ9a_d2078jIoQyXPwQWYHmMemIWEXNPj1tBY1MLTXTVdqqFlMx0pTZLXckPd40gh0k_OH63lys9tjH76rXuayf9JqTwqHEjZnR0srG6V_NMwQAAwVv5TdVqUhwbaWV8l-LsFJ3AvOIjHn8PbFzRB98Yik');">
+        <section id="hero-container" class="relative min-h-[600px] flex items-center justify-center bg-cover bg-center" data-alt="Stunning aerial view of Indonesian islands and turquoise water">
             <div class="max-w-7xl w-full px-4 md:px-10 py-12 grid lg:grid-cols-2 gap-12 items-center">
                 <div class="flex flex-col gap-6 text-left">
-                    <h1 class="text-white text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight drop-shadow-lg">
+                    <h1 id="hero-headline" class="text-white text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight drop-shadow-lg">
 						Temani Perjalanan Wisata Anda dengan Nyaman & Aman
                     </h1>
-                    <p class="text-white/90 text-lg md:text-xl max-w-lg drop-shadow-md">
+                    <p id="hero-subheadline" class="text-white/90 text-lg md:text-xl max-w-lg drop-shadow-md">
                         Jelajahi destinasi wisata Indonesia dan nikmati perjalanan yang menyenangkan bersama Anna Tour.
                     </p>
                 </div>
@@ -53,7 +53,7 @@
                         <h2 class="text-white text-3xl md:text-4xl font-bold mb-4">Kenapa Memilih Anna Tour?</h2>
                         <p class="text-white/80 text-lg">Kami melayani perjalanan wisata antar kota dan charter dengan mengutamakan kenyamanan, keamanan, dan pelayanan yang ramah.</p>
                     </div>
-                    <div class="flex flex-col gap-6">
+                    <div id="poin-keunggulan-container" class="flex flex-col gap-6">
                         <div class="flex gap-4">
                             <div class="flex-shrink-0 size-12 rounded-full bg-white/10 flex items-center justify-center text-white">
                                 <span class="material-symbols-outlined text-2xl">favorite</span>
@@ -103,113 +103,8 @@
                 <h2 class="text-[#181510] text-3xl md:text-4xl font-bold">Paket Tur Populer Kami</h2>
                 <p class="text-[#8d7a5e] max-w-2xl mx-auto">Jadikan ini titik awal petualangan Anda. Setiap paket dapat disesuaikan sepenuhnya dengan keinginan Anda.</p>
             </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-                <div class="group flex flex-col bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-[#f0f0f0]">
-                    <div class="relative h-48 overflow-hidden">
-                        <div class="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-transform duration-500" data-alt="Beautiful Bali temple gate with mountains in background" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDEbEtl3PjXhIK-PzUqQgB7HFDyAPCtBueQVsl1QABpVbMRz2dhEMxgj7Cvy1fiJ_DfTZRdUvgP6jIdV5Q4HXgaFS0FWPCpanUaf_Gf_p4wJLIxLFpsBdS3ETft_GD2M5XJRNaDZX3hwVuoELKOWh-W1Rw8x1SlX9ZIdf6IRhKixhHPlL6iLgndEGYk0x08ZDAOXc7jT_7Aa1_fSgZwdMU6s0kpBxTgB0vPFg4iACNBJakEQk8aNauS2BMMoLMXj_Y6tovdyInxYLg');"></div>
-                        <div class="absolute top-3 right-3 bg-white/90 px-2 py-1 rounded text-xs font-bold text-[#181510] shadow-sm">Popular</div>
-                    </div>
-                    <div class="p-5 flex flex-col flex-1 gap-4">
-                        <div class="flex justify-between items-start">
-                            <h3 class="text-[#181510] font-bold text-lg leading-tight group-hover:text-primary transition-colors">Bali Paradise</h3>
-                        </div>
-                        <div class="flex items-center gap-4 text-sm text-gray-500">
-                            <div class="flex items-center gap-1.5">
-                                <span class="material-symbols-outlined text-[18px]">family_restroom</span>
-                                <span>Family Friendly</span>
-                            </div>
-
-                            <!-- Info Akomodasi -->
-                            <div class="flex items-center gap-1.5">
-                                <span class="material-symbols-outlined text-[18px]">villa</span>
-                                <span>Termasuk Villa</span>
-                            </div>
-                        </div>
-                        <div class="mt-auto pt-2">
-                            <button class="w-full text-center text-primary border border-primary/30 bg-primary/5 hover:bg-primary hover:text-white font-semibold py-2 rounded-lg transition-colors">
-                                View Details
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="group flex flex-col bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-[#f0f0f0]">
-                    <div class="relative h-48 overflow-hidden">
-                        <div class="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-transform duration-500" data-alt="Scenic view of Komodo Island hills and sea" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCKnY6JvifHrxExzwWpSyYxmq9KboGRfA7iJyMqHQBcrRyXT2MHQfCf-ZgQ3ftxm0c0cSOi-cb4wrA7Plb3jKfHQ42itcaUpUoMZCV2MM4QYnympbaRtfPpS9OGga2MYJfcPYKv8syVQTL3aqckhktUU6A5AaSXesrhMNklJtIBBpP4cQM9ZqSwtBBfFlAoi3zX5R05JwN9R0TxU_oneF-ON4eLm-tO91q0RPzDYN17PUOgzSRjlAMq_4Ndd1xZjqvqokIIAE8QQP0');"></div>
-                    </div>
-                    <div class="p-5 flex flex-col flex-1 gap-4">
-                        <div class="flex justify-between items-start">
-                            <h3 class="text-[#181510] font-bold text-lg leading-tight group-hover:text-primary transition-colors">Komodo Adventure</h3>
-                            <span class="text-primary font-bold text-sm bg-primary/10 px-2 py-1 rounded whitespace-nowrap">$450</span>
-                        </div>
-                        <div class="flex items-center gap-4 text-sm text-gray-500">
-                            <div class="flex items-center gap-1">
-                                <span class="material-symbols-outlined text-[18px]">schedule</span>
-                                4 Days
-                            </div>
-                            <div class="flex items-center gap-1">
-                                <span class="material-symbols-outlined text-[18px]">group</span>
-                                4 Pax
-                            </div>
-                        </div>
-                        <div class="mt-auto pt-2">
-                            <button class="w-full text-center text-primary border border-primary/30 bg-primary/5 hover:bg-primary hover:text-white font-semibold py-2 rounded-lg transition-colors">
-                                View Details
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="group flex flex-col bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-[#f0f0f0]">
-                    <div class="relative h-48 overflow-hidden">
-                        <div class="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-transform duration-500" data-alt="Crystal clear water and islands of Raja Ampat" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBX_clFy6j9Rab6orFijYRuGJg3wVdevtY8-yedY6Lj-032iFbsL0o5dnuSanPC2n5Fvh7SPE1z6g7HnP7JrUr3fApz5noEVmW08JxDD5MMN1o0hjswfJzhR8TOaaEy1N6hj3Anx_1ElOaXajvq4InyMkJWDVyraKBznJU04bpXLDzG-UJ-gwNpsChXvzcLaIOkPeXnNlrzf77rDx81rG0hnUyfzZp1AvrpRsMtbtEUW8GWo3_s98TmWL2Udj1A5tXGs4a5-6xIDOQ');"></div>
-                    </div>
-                    <div class="p-5 flex flex-col flex-1 gap-4">
-                        <div class="flex justify-between items-start">
-                            <h3 class="text-[#181510] font-bold text-lg leading-tight group-hover:text-primary transition-colors">Raja Ampat Dive</h3>
-                            <span class="text-primary font-bold text-sm bg-primary/10 px-2 py-1 rounded whitespace-nowrap">$1,200</span>
-                        </div>
-                        <div class="flex items-center gap-4 text-sm text-gray-500">
-                            <div class="flex items-center gap-1">
-                                <span class="material-symbols-outlined text-[18px]">schedule</span>
-                                7 Days
-                            </div>
-                            <div class="flex items-center gap-1">
-                                <span class="material-symbols-outlined text-[18px]">group</span>
-                                2 Pax
-                            </div>
-                        </div>
-                        <div class="mt-auto pt-2">
-                            <button class="w-full text-center text-primary border border-primary/30 bg-primary/5 hover:bg-primary hover:text-white font-semibold py-2 rounded-lg transition-colors">
-                                View Details
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="group flex flex-col bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-[#f0f0f0]">
-                    <div class="relative h-48 overflow-hidden">
-                        <div class="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-transform duration-500" data-alt="Sunrise over Mount Bromo volcano" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD8hAG85DlgqZ71HrMvd87_xueXMly1gb0GnXbzWmoSskyZ1apBZ2VHjCD_bSd9bOdfAzP76iUtCrMehXwUDK7B5lX12IB3p00SWW-zd7vDVwVh4j9V1bESV4bspI71p-UNnfOxAhnSt6tiYBMOrhX4MOvVoFSpPyWUUaKo7-FMAks0xnMijfaBeU5ECXKgeeZN1LFUWXc9o3gRh-7zigCYbtNCqaqrxxaaBdXPBolzBMVi_wo1uouo8v7umPGbrH1Q_gvvv3YcK_E');"></div>
-                    </div>
-                    <div class="p-5 flex flex-col flex-1 gap-4">
-                        <div class="flex justify-between items-start">
-                            <h3 class="text-[#181510] font-bold text-lg leading-tight group-hover:text-primary transition-colors">Bromo Sunrise</h3>
-                            <span class="text-primary font-bold text-sm bg-primary/10 px-2 py-1 rounded whitespace-nowrap">$150</span>
-                        </div>
-                        <div class="flex items-center gap-4 text-sm text-gray-500">
-                            <div class="flex items-center gap-1">
-                                <span class="material-symbols-outlined text-[18px]">schedule</span>
-                                2 Days
-                            </div>
-                            <div class="flex items-center gap-1">
-                                <span class="material-symbols-outlined text-[18px]">group</span>
-                                Group
-                            </div>
-                        </div>
-                        <div class="mt-auto pt-2">
-                            <button class="w-full text-center text-primary border border-primary/30 bg-primary/5 hover:bg-primary hover:text-white font-semibold py-2 rounded-lg transition-colors">
-                                View Details
-                            </button>
-                        </div>
-                    </div>
-                </div>
+            <div id="tour-package-cards-container" class="flex flex-wrap gap-6 md:gap-8 justify-center">
+                
             </div>
         </section>
         <section class="w-full py-16 bg-gray-100" id="charter">
@@ -218,115 +113,8 @@
                     <h2 class="text-[#181510] text-3xl md:text-4xl font-bold">Armada Charter &amp; Layanan Kami</h2>
                     <p class="text-[#8d7a5e] max-w-2xl mx-auto">Nikmati kebebasan perjalanan bersama rombongan Anda. Kami menyediakan armada terbaik untuk kenyamanan dan keamanan di setiap rute.</p>
                 </div>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-                    <div class="group flex flex-col bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-[#f0f0f0]">
-                        <div class="relative h-48 overflow-hidden">
-                            <div class="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-transform duration-500" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDptrhstvWiCQM2f-xVBVXAQIWXZcviPTx3PgIZ7NPvnrn6vuQIoTobM4OgazPzkFWSNMkuEs8XFblTk6Hu7tSlWXDE7_Qxj9JKcdKhcWcPDmKOw2hMzXCk1gzzgX_q2wBs6iblJ64d7VE51KVgiTE2xRpq-HbMyQ3N1P06IUBTyhk0_ztYvaq1KIHAiv45Enq57IHdsNxN9Vqftu3pizGQe_-2D5-j2jPl57Om2KUmYctjl-Z1Kpi6KQW1uYQEKL8kem38fXi2aEM');"></div>
-                        </div>
-                        <div class="p-5 flex flex-col flex-1 gap-4">
-                            <h3 class="text-[#181510] font-bold text-lg leading-tight">Toyota HiAce Commuter</h3>
-                            <div class="space-y-2">
-                                <div class="flex items-center gap-2 text-sm text-gray-600">
-                                    <span class="material-symbols-outlined text-[20px] text-secondary">airline_seat_recline_normal</span>
-                                    <span>Up to 14 Seats</span>
-                                </div>
-                                <div class="flex items-center gap-2 text-sm text-gray-600">
-                                    <span class="material-symbols-outlined text-[20px] text-secondary">ac_unit</span>
-                                    <span>Full AC</span>
-                                </div>
-                                <div class="flex items-center gap-2 text-sm text-gray-600">
-                                    <span class="material-symbols-outlined text-[20px] text-secondary">speaker</span>
-                                    <span>Audio System</span>
-                                </div>
-                            </div>
-                            <div class="mt-auto pt-4">
-                                <button class="w-full text-center bg-primary hover:bg-primary/90 text-white font-bold py-2.5 rounded-lg transition-colors shadow-sm">
-                                    View Details &amp; Price
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="group flex flex-col bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-[#f0f0f0]">
-                        <div class="relative h-48 overflow-hidden">
-                            <div class="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-transform duration-500" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAEcsWDU1ArsL5lwry3ivjnVbKiHEI6v37PGr2KEwfL1btQrmbosbK1r-29gQj7tGJnpQtJdu2QSNXAZUFbWjBX-2lGXfu7gMOqS50_hIPgrECluL5ZKjcp_F7P6_N9zvuA7NeAYfievnzzWWDdmxlmHRenBMX2evWsJz6tMPLnysaqTfMoo4GjhcIXLke6OGVB0A7BSgTpScE0hs5c9FE0rWYry11YDf7o4A7KCz0uvA3_iPp2uOdjLmcofXd6JTdnrHZxlT6j6BA');"></div>
-                        </div>
-                        <div class="p-5 flex flex-col flex-1 gap-4">
-                            <h3 class="text-[#181510] font-bold text-lg leading-tight">Toyota Innova Reborn</h3>
-                            <div class="space-y-2">
-                                <div class="flex items-center gap-2 text-sm text-gray-600">
-                                    <span class="material-symbols-outlined text-[20px] text-secondary">group</span>
-                                    <span>Up to 7 Seats</span>
-                                </div>
-                                <div class="flex items-center gap-2 text-sm text-gray-600">
-                                    <span class="material-symbols-outlined text-[20px] text-secondary">ac_unit</span>
-                                    <span>Double Blower AC</span>
-                                </div>
-                                <div class="flex items-center gap-2 text-sm text-gray-600">
-                                    <span class="material-symbols-outlined text-[20px] text-secondary">airline_seat_legroom_extra</span>
-                                    <span>Spacious Legroom</span>
-                                </div>
-                            </div>
-                            <div class="mt-auto pt-4">
-                                <button class="w-full text-center bg-primary hover:bg-primary/90 text-white font-bold py-2.5 rounded-lg transition-colors shadow-sm">
-                                    View Details &amp; Price
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="group flex flex-col bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-[#f0f0f0]">
-                        <div class="relative h-48 overflow-hidden">
-                            <div class="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-transform duration-500" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCcY0ReA9Hpo4NyRTn5ROPG8gewiSk_2i6lu0bkqU3M638t_oyz39TCOUGwiNupYdctYqCxAT-njxictEOCv6m3PuA83K8OGbYxSQAflGbvcjs9G9YBsH2RlgXecfmjhDdGF9iI_nUb4pvTMqPPLP8o7keqo7TwrgP6c3HPf2TDkBWZc39Bm73KFgI6Y9vXd5KcUhZYuGRZRkSDwqcsTcAJPDF3uFbdlrm4cvk-oxdYBJ1JSaFGxm10wwbcwVH34JQIDFY4INeJyIE');"></div>
-                        </div>
-                        <div class="p-5 flex flex-col flex-1 gap-4">
-                            <h3 class="text-[#181510] font-bold text-lg leading-tight">Luxury Alphard</h3>
-                            <div class="space-y-2">
-                                <div class="flex items-center gap-2 text-sm text-gray-600">
-                                    <span class="material-symbols-outlined text-[20px] text-secondary">diamond</span>
-                                    <span>VIP Experience</span>
-                                </div>
-                                <div class="flex items-center gap-2 text-sm text-gray-600">
-                                    <span class="material-symbols-outlined text-[20px] text-secondary">airline_seat_recline_extra</span>
-                                    <span>Pilot Seats</span>
-                                </div>
-                                <div class="flex items-center gap-2 text-sm text-gray-600">
-                                    <span class="material-symbols-outlined text-[20px] text-secondary">wifi</span>
-                                    <span>Free Wi-Fi</span>
-                                </div>
-                            </div>
-                            <div class="mt-auto pt-4">
-                                <button class="w-full text-center bg-primary hover:bg-primary/90 text-white font-bold py-2.5 rounded-lg transition-colors shadow-sm">
-                                    View Details &amp; Price
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="group flex flex-col bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-[#f0f0f0]">
-                        <div class="relative h-48 overflow-hidden">
-                            <div class="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-transform duration-500" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDC-TkKEDVJjcbKXJTCyi17ZOfDL_BegLdUQxk-2Ox4j3pjMHekYBF6YhtftrD_lCkH1LbzCGYpLoWmLO2fqOuYY95oPh_H7XX9GnfLUCr0UZnsGJCoF7kkUZ1tE8GeN_gp_rln1S6zANSnKTD3rqb_8OofF2j4l_7j561EEHZ_ycfbu42N00jJ6kyq7fw7-6FuNTzodPTh6-VUK2ODiNMaS3P0wJm4mlT5eBLZCUbImrVBYWtkWJNE_o_8dPv3zABjvD6e5pgpQ6U');"></div>
-                        </div>
-                        <div class="p-5 flex flex-col flex-1 gap-4">
-                            <h3 class="text-[#181510] font-bold text-lg leading-tight">Isuzu ELF Long</h3>
-                            <div class="space-y-2">
-                                <div class="flex items-center gap-2 text-sm text-gray-600">
-                                    <span class="material-symbols-outlined text-[20px] text-secondary">groups</span>
-                                    <span>Up to 19 Seats</span>
-                                </div>
-                                <div class="flex items-center gap-2 text-sm text-gray-600">
-                                    <span class="material-symbols-outlined text-[20px] text-secondary">luggage</span>
-                                    <span>Large Baggage</span>
-                                </div>
-                                <div class="flex items-center gap-2 text-sm text-gray-600">
-                                    <span class="material-symbols-outlined text-[20px] text-secondary">usb</span>
-                                    <span>USB Charging</span>
-                                </div>
-                            </div>
-                            <div class="mt-auto pt-4">
-                                <button class="w-full text-center bg-primary hover:bg-primary/90 text-white font-bold py-2.5 rounded-lg transition-colors shadow-sm">
-                                    View Details &amp; Price
-                                </button>
-                            </div>
-                        </div>
-                    </div>
+                <div id="charter-cards-container" class="flex flex-wrap gap-6 md:gap-8 justify-center">
+                    
                 </div>
             </div>
         </section>
@@ -443,13 +231,13 @@
                             Anna Tour Travel adalah mitra terpercaya Anda untuk setiap perjalanan. Kami berkomitmen memberikan layanan personal dan menciptakan kenangan tak terlupakan di seluruh Indonesia.
                         </p>
                         <div class="flex gap-4 mt-2">
-                            <a class="size-8 rounded-full bg-gray-700 flex items-center justify-center hover:bg-primary transition-colors text-white" href="#">
+                            <a id="facebook" class="size-8 rounded-full bg-gray-700 flex items-center justify-center hover:bg-primary transition-colors text-white" href="#">
                                 <svg class="size-4" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Facebook</title><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z"/></svg>
                             </a>
-                            <a class="size-8 rounded-full bg-gray-700 flex items-center justify-center hover:bg-primary transition-colors text-white" href="#">
+                            <a id="instagram" class="size-8 rounded-full bg-gray-700 flex items-center justify-center hover:bg-primary transition-colors text-white" href="#">
                                 <svg class="size-4" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Instagram</title><path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></svg>
                             </a>
-                            <a class="size-8 rounded-full bg-gray-700 flex items-center justify-center hover:bg-primary transition-colors text-white" href="#">
+                            <a id="youtube" class="size-8 rounded-full bg-gray-700 flex items-center justify-center hover:bg-primary transition-colors text-white" href="#">
                                 <svg class="size-4" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>YouTube</title><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
                             </a>
                             
@@ -470,15 +258,19 @@
                         <div class="flex flex-col gap-4">
                             <div class="flex items-start gap-3 text-gray-400 text-sm">
                                 <span class="material-symbols-outlined text-primary text-lg">location_on</span>
-                                <span>Jl. Raya Kuta No. 88,<br/>Bali, Indonesia</span>
+                                <div id="alamat-container">
+
+                                </div>
                             </div>
                             <div class="flex items-center gap-3 text-gray-400 text-sm">
                                 <span class="material-symbols-outlined text-primary text-lg">call</span>
-                                <span>+62 812 3456 7890</span>
+                                <div id="nomor-telepon-container">
+
+                                </div>
                             </div>
                             <div class="flex items-center gap-3 text-gray-400 text-sm">
                                 <span class="material-symbols-outlined text-primary text-lg">mail</span>
-                                <span>info@annatour.com</span>
+                                <span id="alamat-email">info@annatour.com</span>
                             </div>
                         </div>
                     </div>
@@ -507,46 +299,67 @@
         </footer>
     </div>
 
-	<template id="package-card-template">
-		<div class="group flex flex-col bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-[#f0f0f0]">
-			<div class="relative h-48 overflow-hidden">
-				<div class="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-transform duration-500" data-alt="Beautiful Bali temple gate with mountains in background" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDEbEtl3PjXhIK-PzUqQgB7HFDyAPCtBueQVsl1QABpVbMRz2dhEMxgj7Cvy1fiJ_DfTZRdUvgP6jIdV5Q4HXgaFS0FWPCpanUaf_Gf_p4wJLIxLFpsBdS3ETft_GD2M5XJRNaDZX3hwVuoELKOWh-W1Rw8x1SlX9ZIdf6IRhKixhHPlL6iLgndEGYk0x08ZDAOXc7jT_7Aa1_fSgZwdMU6s0kpBxTgB0vPFg4iACNBJakEQk8aNauS2BMMoLMXj_Y6tovdyInxYLg');"></div>
-				<div class="absolute top-3 right-3 bg-white/90 px-2 py-1 rounded text-xs font-bold text-[#181510] shadow-sm">Popular</div>
+    <script type="module" src="src/main.js"></script>
+
+    <template id="poin-keunggulan-template">
+        <div class="flex gap-4">
+            <div class="flex-shrink-0 size-12 rounded-full bg-white/10 flex items-center justify-center text-white">
+                <span class="poin-keunggulan-icon material-symbols-outlined text-2xl">favorite</spa>
+            </div>
+            <div>
+                <h3 class="poin-keunggulan-title text-white text-lg font-bold">Pelayanan Ramah & Profesional</h3>
+                <p class="poin-keunggulan-description text-white/70 text-sm mt-1">Driver kami dikenal ramah, sopan, dan siap membantu selama perjalanan agar pelanggan merasa nyaman.</p>
+            </div>
+        </div>
+    </template>
+
+	<template id="tour-package-card-template">
+		<div class="group flex flex-col bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-[#f0f0f0] w-72 flex-shrink-0">
+			<div class="tour-package-card-image-container relative h-48 overflow-hidden">
+				<img class="tour-package-card-image w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="">
 			</div>
 			<div class="p-5 flex flex-col flex-1 gap-4">
 				<div class="flex justify-between items-start">
-					<h3 class="text-[#181510] font-bold text-lg leading-tight group-hover:text-primary transition-colors">Bali Paradise</h3>
+					<h3 class="tour-package-card-title text-[#181510] font-bold text-lg leading-tight group-hover:text-primary transition-colors">Bali Paradise</h3>
 				</div>
+                <!-- tipe trip -->
 				<div class="flex items-center gap-4 text-sm text-gray-500">
 					<div class="flex items-center gap-1.5">
-                        <span class="material-symbols-outlined text-[18px]">family_restroom</span>
-                        <span>Family Friendly</span>
+                        <span class="tour-package-card-trip-type-icon material-symbols-outlined text-[18px]">family_restroom</span>
+                        <span class="tour-package-card-trip-type-text">Family Friendly</span>
                     </div>
 
                     <!-- Info Akomodasi -->
                     <div class="flex items-center gap-1.5">
-                        <span class="material-symbols-outlined text-[18px]">villa</span>
-                        <span>Termasuk Villa</span>
+                        <span class="tour-package-card-accommodation-info-icon material-symbols-outlined text-[18px]">villa</span>
+                        <span class="tour-package-card-accommodation-info-text">Termasuk Villa</span>
                     </div>
 				</div>
-				<div class="mt-auto pt-2">
-					<a target="_blank" 
-                    class="w-full text-center text-primary border border-primary/30 bg-primary/5 hover:bg-primary hover:text-white font-semibold py-2 rounded-lg transition-colors">
-						Pesan via WhatsApp
-					</a>
-				</div>
+                <div class="mt-auto pt-2">
+                    <a target="_blank" 
+                    class="tour-package-card-order-btn block w-full text-center text-primary border border-primary/30 bg-primary/5 hover:bg-primary hover:text-white font-semibold py-2 rounded-lg transition-colors cursor-pointer">
+                        Pesan via WhatsApp
+                    </a>
+                </div>
 			</div>
 		</div>
 	</template>
 
+    <template id="charter-card-feature-template">
+        <div class="flex items-center gap-2 text-sm text-gray-600">
+            <span class="charter-card-feature-icon material-symbols-outlined text-[20px] text-secondary">airline_seat_recline_normal</span>
+            <span class="charter-card-feature-text">Up to 14 Seats</span>
+        </div>
+    </template>
+
     <template id="charter-card-template">
-        <div class="group flex flex-col bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-[#f0f0f0]">
-            <div class="relative h-48 overflow-hidden">
-                <div class="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-transform duration-500" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDptrhstvWiCQM2f-xVBVXAQIWXZcviPTx3PgIZ7NPvnrn6vuQIoTobM4OgazPzkFWSNMkuEs8XFblTk6Hu7tSlWXDE7_Qxj9JKcdKhcWcPDmKOw2hMzXCk1gzzgX_q2wBs6iblJ64d7VE51KVgiTE2xRpq-HbMyQ3N1P06IUBTyhk0_ztYvaq1KIHAiv45Enq57IHdsNxN9Vqftu3pizGQe_-2D5-j2jPl57Om2KUmYctjl-Z1Kpi6KQW1uYQEKL8kem38fXi2aEM');"></div>
+        <div class="group flex flex-col bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-[#f0f0f0] w-72 flex-shrink-0">
+            <div class="charter-card-image-container relative h-48 overflow-hidden">
+                <img class="charter-card-image w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt="">
             </div>
             <div class="p-5 flex flex-col flex-1 gap-4">
-                <h3 class="text-[#181510] font-bold text-lg leading-tight">Toyota HiAce Commuter</h3>
-                <div class="space-y-2">
+                <h3 class="charter-card-vehicle-name text-[#181510] font-bold text-lg leading-tight">Toyota HiAce Commuter</h3>
+                <div class="charter-card-features-container space-y-2">
                     <div class="flex items-center gap-2 text-sm text-gray-600">
                         <span class="material-symbols-outlined text-[20px] text-secondary">airline_seat_recline_normal</span>
                         <span>Up to 14 Seats</span>
@@ -561,9 +374,10 @@
                     </div>
                 </div>
                 <div class="mt-auto pt-4">
-                    <button class="w-full text-center bg-primary hover:bg-primary/90 text-white font-bold py-2.5 rounded-lg transition-colors shadow-sm">
+                    <a target="_blank" 
+                    class="charter-card-order-btn block w-full text-center bg-primary hover:bg-primary/90 text-white font-bold py-2.5 rounded-lg transition-colors shadow-sm cursor-pointer">
                         Pesan via WhatsApp
-                    </button>
+                    </a>
                 </div>
             </div>
         </div>
