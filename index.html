@@ -3,7 +3,9 @@
 <head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>Anna Tour Travel</title>
+    <title>Anna Tour Travel Indonesia</title>
+    <link rel="icon" type="image/png" href="./src/assets/logo.jpeg">
+    <link rel="apple-touch-icon" href="./src/assets/logo.jpeg">
     <link href="./src/output.css" rel="stylesheet">
     <link href="./src/style.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
@@ -14,10 +16,8 @@
         <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-[#f5f3f0] shadow-sm">
             <div class="px-4 md:px-10 py-4 max-w-7xl mx-auto flex items-center justify-between">
                 <div class="flex items-center gap-3">
-                    <div class="size-8 text-primary">
-                        <span class="material-symbols-outlined text-4xl">travel_explore</span>
-                    </div>
-                    <h2 class="text-[#181510] text-xl font-bold tracking-tight">Anna Tour Travel</h2>
+                    <img src="./src/assets/logo.jpeg" alt="Anna Tour Travel Logo" class="size-8 object-contain rounded-full">
+                    <h2 class="text-[#181510] text-xl font-bold tracking-tight">Anna Tour Travel Indonesia</h2>
                 </div>
                 <nav class="hidden md:flex items-center gap-8">
                     <a class="text-[#181510] text-sm font-medium hover:text-primary transition-colors" href="#about">About</a>
@@ -42,9 +42,7 @@
                     <!-- Header Mobile Menu -->
                     <div class="flex items-center justify-between p-6 border-b border-[#f5f3f0]">
                         <div class="flex items-center gap-3">
-                            <div class="size-8 text-primary">
-                                <span class="material-symbols-outlined text-3xl">travel_explore</span>
-                            </div>
+                            <img src="./src/assets/logo.jpeg" alt="Anna Tour Travel Logo" class="size-8 object-contain rounded-full">
                             <h3 class="text-[#181510] text-lg font-bold">Anna Tour Travel</h3>
                         </div>
                         <button id="mobile-menu-close" class="size-8 rounded-full hover:bg-gray-100 flex items-center justify-center text-gray-500 hover:text-[#181510] transition-colors">
@@ -88,9 +86,22 @@
                 </div>
             </div>
         </div>
-        <section id="hero-container" class="relative min-h-[600px] flex items-center justify-center bg-cover bg-center" data-alt="Stunning aerial view of Indonesian islands and turquoise water">
-            <div class="max-w-7xl w-full px-4 md:px-10 py-12 grid lg:grid-cols-2 gap-12 items-center">
-                <div class="flex flex-col gap-6 text-left">
+        <section id="hero-container" class="relative min-h-[600px] md:min-h-[700px] flex items-center justify-center overflow-hidden">
+            <!-- Hero Background Image -->
+            <img 
+                id="hero-background-image" 
+                class="absolute inset-0 w-full h-full object-cover object-center z-0"
+                src="" 
+                alt="Stunning aerial view of Indonesian islands and turquoise water - Anna Tour Travel"
+                loading="eager"
+            >
+            
+            <!-- Hero Overlay -->
+            <div class="absolute inset-0 bg-gradient-to-r from-black/50 to-black/30 z-10"></div>
+            
+            <!-- Hero Content -->
+            <div class="relative z-20 max-w-7xl w-full px-4 md:px-10 py-12 grid lg:grid-cols-2 gap-12 items-start">
+                <div class="flex flex-col gap-6 text-left pt-8">
                     <h1 id="hero-headline" class="text-white text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight drop-shadow-lg">
 						Temani Perjalanan Wisata Anda dengan Nyaman & Aman
                     </h1>
@@ -104,7 +115,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 rounded-3xl overflow-hidden shadow-xl bg-tertiary">
                 <div class="p-8 md:p-12 flex flex-col justify-center gap-8">
                     <div>
-                        <h2 class="text-white text-3xl md:text-4xl font-bold mb-4">Kenapa Memilih Anna Tour?</h2>
+                        <h2 class="text-white text-3xl md:text-4xl font-bold mb-4">Kenapa Memilih Anna Tour Travel?</h2>
                         <p class="text-white/80 text-lg">Kami melayani perjalanan wisata antar kota dan charter dengan mengutamakan kenyamanan, keamanan, dan pelayanan yang ramah.</p>
                     </div>
                     <div id="poin-keunggulan-container" class="flex flex-col gap-6">
@@ -156,7 +167,7 @@
         </section>
         <section class="max-w-7xl mx-auto w-full px-4 md:px-10 py-12" id="packages">
             <div class="flex flex-col gap-3 mb-10 text-center">
-                <h2 class="text-[#181510] text-3xl md:text-4xl font-bold">Paket Tur Populer Kami</h2>
+                <h2 class="text-[#181510] text-3xl md:text-4xl font-bold">Paket Tour Populer Kami</h2>
                 <p class="text-[#8d7a5e] max-w-2xl mx-auto">Jadikan ini titik awal petualangan Anda. Setiap paket dapat disesuaikan sepenuhnya dengan keinginan Anda.</p>
             </div>
             <div id="tour-package-cards-container" class="flex flex-wrap gap-6 md:gap-8 justify-center">
@@ -278,9 +289,7 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
                     <div class="flex flex-col gap-4">
                         <div class="flex items-center gap-3">
-                            <div class="size-8 text-primary">
-                                <span class="material-symbols-outlined text-4xl">travel_explore</span>
-                            </div>
+                            <img src="./src/assets/logo.jpeg" alt="Anna Tour Travel Logo" class="size-8 object-contain rounded-full">
                             <h3 class="text-xl font-bold">Anna Tour Travel</h3>
                         </div>
                         <p class="text-gray-400 text-sm leading-relaxed">

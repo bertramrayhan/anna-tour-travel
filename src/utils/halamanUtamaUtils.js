@@ -17,10 +17,49 @@ export function populateHalamanUtama(halamanUtamaContent){
 }
 
 function populateHero(halamanUtamaContent){
+    const heroBackgroundImage = document.getElementById('hero-background-image');
     const heroContainer = document.getElementById('hero-container');
-    const imageUrl = urlFor(halamanUtamaContent['hero_backgroundImage']).width(1920).height(1080).url();
+    const imageUrl = urlFor(halamanUtamaContent['hero_backgroundImage']).url();
 
-    heroContainer.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4)), url('${imageUrl}')`;
+    // Buat image object untuk mendapatkan dimensi asli
+    const img = new Image();
+    img.onload = function() {
+        const aspectRatio = img.width / img.height;
+        
+        // Set container height berdasarkan viewport width dan aspect ratio gambar
+        const viewportWidth = window.innerWidth;
+        let containerWidth = Math.min(viewportWidth, 1280); // Max width 1280px (max-w-7xl)
+        
+        // Responsive width calculation
+        if (viewportWidth >= 1024) { // lg breakpoint
+            containerWidth = viewportWidth * 0.9; // 90% viewport width
+        } else if (viewportWidth >= 768) { // md breakpoint  
+            containerWidth = viewportWidth * 0.95; // 95% viewport width
+        } else {
+            containerWidth = viewportWidth; // Full width on mobile
+        }
+        
+        const calculatedHeight = containerWidth / aspectRatio;
+        
+        // Set minimum height untuk memastikan konten tetap terbaca
+        const minHeight = Math.max(calculatedHeight, 400);
+        
+        heroContainer.style.height = `${minHeight}px`;
+        
+        console.log(`Image dimensions: ${img.width}x${img.height}, Aspect ratio: ${aspectRatio.toFixed(2)}, Container: ${containerWidth}x${minHeight}`);
+    };
+    
+    img.src = imageUrl;
+    heroBackgroundImage.src = imageUrl;
+
+    // Resize listener untuk responsive
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(() => {
+            img.onload(); // Trigger recalculation
+        }, 300);
+    });
 
     document.getElementById('hero-headline').textContent = halamanUtamaContent['hero_headline'];
     document.getElementById('hero-subheadline').textContent = halamanUtamaContent['hero_subheadline'];

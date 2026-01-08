@@ -70,3 +70,22 @@ html {
 #mobile-menu-close {
     transition: all 0.2s ease;
 }
+
+/* Hero Section Styles - Dynamic Container */
+#hero-container {
+    min-height: 400px; /* Minimum height untuk mobile */
+    transition: height 0.3s ease-out; /* Smooth height transition */
+}
+
+/* Responsive minimum heights */
+@media (min-width: 640px) {
+    #hero-container {
+        min-height: 500px;
+    }
+}
+
+@media (min-width: 1024px) {
+    #hero-container {
+        min-height: 600px;
+    }
+}
