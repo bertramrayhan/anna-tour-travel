@@ -30,14 +30,17 @@ export function populateCharters(charters, whatsappTemplate){
         //fitur
         const charterCardFeaturesContainer = charterCardClone.querySelector('.charter-card-features-container');
         charterCardFeaturesContainer.innerHTML = ''
-        charter.features.forEach(feature => {
-            const charterCardFeatureClone = charterCardFeatureTemplate.content.cloneNode(true);
-            
-            charterCardFeatureClone.querySelector('.charter-card-feature-icon').textContent = feature.icon;
-            charterCardFeatureClone.querySelector('.charter-card-feature-text').textContent = feature.text;
 
-            charterCardFeaturesContainer.appendChild(charterCardFeatureClone);
-        });
+        if (charter.features) {
+            charter.features.forEach(feature => {
+                const charterCardFeatureClone = charterCardFeatureTemplate.content.cloneNode(true);
+                
+                charterCardFeatureClone.querySelector('.charter-card-feature-icon').textContent = feature.icon;
+                charterCardFeatureClone.querySelector('.charter-card-feature-text').textContent = feature.text;
+
+                charterCardFeaturesContainer.appendChild(charterCardFeatureClone);
+            });
+        }
 
         //tombol pesan
         whatsappTemplate = whatsappTemplate.replace('{{NAMA_PRODUK}}', charter.vehicleName);
