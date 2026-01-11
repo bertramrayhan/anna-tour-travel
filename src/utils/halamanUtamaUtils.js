@@ -76,7 +76,14 @@ function populateWhyUs(halamanUtamaContent){
 
         poinKeunggulanClone.querySelector('.poin-keunggulan-icon').textContent = poinKeunggulan['icon'] 
         poinKeunggulanClone.querySelector('.poin-keunggulan-title').textContent = poinKeunggulan['title'] 
-        poinKeunggulanClone.querySelector('.poin-keunggulan-description').textContent = poinKeunggulan['description']
+        const descriptionEl = poinKeunggulanClone.querySelector('.poin-keunggulan-description');
+
+        // 👉 kalau description kosong / null / undefined
+        if (!poinKeunggulan.description || poinKeunggulan.description.trim() === '') {
+            descriptionEl.remove();
+        } else {
+            descriptionEl.textContent = poinKeunggulan.description;
+        }
 
         poinKeunggulanContainer.appendChild(poinKeunggulanClone);
     });
