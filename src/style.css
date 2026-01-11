@@ -89,3 +89,237 @@ html {
         min-height: 600px;
     }
 }
+
+/* Video Playlist Scrollbar Styling */
+.playlist-scroll-container {
+    position: relative;
+}
+
+.playlist-scroll-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.playlist-scroll-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 6px;
+}
+
+.playlist-scroll-container::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #ff9900 0%, #e68900 100%);
+    border-radius: 6px;
+    transition: background 0.3s ease;
+}
+
+.playlist-scroll-container::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #e68900 0%, #cc7700 100%);
+}
+
+/* Firefox scrollbar */
+.playlist-scroll-container {
+    scrollbar-width: thin;
+    scrollbar-color: #ff9900 #f1f1f1;
+}
+
+/* Hover effect untuk menunjukkan scrollability */
+.playlist-scroll-container:hover {
+    scrollbar-color: #e68900 #f1f1f1;
+}
+
+/* Smooth scrolling untuk playlist */
+.playlist-scroll-container {
+    scroll-behavior: smooth;
+}
+
+/* Fade indicator enhancement */
+.playlist-fade-indicator {
+    transition: opacity 0.3s ease;
+    z-index: 10;
+}
+
+/* Ketika di-scroll sampai bawah, fade indicator akan menghilang */
+.playlist-scroll-container.scrolled-to-bottom ~ .playlist-fade-indicator {
+    opacity: 0;
+}
+
+/* Enhanced video playlist item hover */
+.video-playlist-item {
+    border: 1px solid transparent;
+    transition: all 0.2s ease;
+}
+
+.video-playlist-item:hover {
+    transform: translateX(4px);
+    border-color: #ff9900;
+    box-shadow: 0 4px 12px rgba(255, 153, 0, 0.15);
+}
+
+/* Active/Current playing state */
+.video-playlist-item.active {
+    border-color: #ff9900;
+    background: linear-gradient(135deg, #fff8f0 0%, #ffffff 100%);
+}
+
+.video-playlist-item.active .playlist-title {
+    color: #ff9900 !important;
+}
+
+/* Scroll indicator animation */
+@keyframes scrollPulse {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+}
+
+.playlist-scroll-container:not(:hover) + .playlist-fade-indicator {
+    animation: scrollPulse 2s ease-in-out infinite;
+}
+
+/* Mobile responsive untuk playlist scroll */
+@media (max-width: 1023px) {
+    .playlist-scroll-container {
+        max-height: 300px;
+    }
+    
+    .playlist-fade-indicator {
+        height: 12px;
+    }
+}
+
+/* Tambahan untuk scroll indicator yang lebih prominent */
+.playlist-scroll-container.has-scroll:not(:hover) {
+    position: relative;
+}
+
+.playlist-scroll-container.has-scroll:not(:hover)::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: -10px;
+    width: 4px;
+    height: 20px;
+    background: linear-gradient(to bottom, transparent, #ff9900, transparent);
+    border-radius: 2px;
+    transform: translateY(-50%);
+    animation: scrollIndicatorPulse 2s ease-in-out infinite;
+}
+
+@keyframes scrollIndicatorPulse {
+    0%, 100% { 
+        opacity: 0.3;
+        transform: translateY(-50%) scale(0.8);
+    }
+    50% { 
+        opacity: 1;
+        transform: translateY(-50%) scale(1);
+    }
+}
+
+/* Enhanced playlist item untuk better UX */
+.video-playlist-item {
+    position: relative;
+}
+
+.video-playlist-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: #ff9900;
+    transform: scaleY(0);
+    transition: transform 0.2s ease;
+}
+
+.video-playlist-item.active::before {
+    transform: scaleY(1);
+}
+
+/* Smooth scrolling untuk auto-scroll ke current playing */
+.playlist-scroll-container {
+    scroll-behavior: smooth;
+    scroll-padding-top: 10px;
+    scroll-padding-bottom: 10px;
+}
+
+/* Visual feedback saat auto-scrolling */
+.video-playlist-item.active {
+    transition: all 0.3s ease;
+    animation: activeItemPulse 0.5s ease-in-out;
+}
+
+@keyframes activeItemPulse {
+    0% { 
+        transform: scale(1);
+        box-shadow: 0 4px 12px rgba(255, 153, 0, 0.15);
+    }
+    50% { 
+        transform: scale(1.02);
+        box-shadow: 0 6px 20px rgba(255, 153, 0, 0.25);
+    }
+    100% { 
+        transform: scale(1);
+        box-shadow: 0 4px 12px rgba(255, 153, 0, 0.15);
+    }
+}
+
+/* Ensure active item is always visible with highlighting */
+.video-playlist-item.active {
+    position: relative;
+    z-index: 2;
+}
+
+/* Smooth transition saat item menjadi active/inactive */
+.video-playlist-item {
+    transition: all 0.2s ease, transform 0.2s ease;
+}
+
+.video-playlist-item:not(.active) {
+    opacity: 0.85;
+}
+
+.video-playlist-item.active {
+    opacity: 1;
+}
+
+/* Loading state untuk thumbnails */
+.playlist-thumbnail {
+    background: #f3f3f3;
+    transition: opacity 0.3s ease;
+}
+
+.playlist-thumbnail:not([src]) {
+    opacity: 0.5;
+}
+
+/* Styling untuk header playlist */
+.playlist-header {
+    border-bottom: 1px solid #e5e7eb;
+    padding-bottom: 8px;
+    margin-bottom: 12px;
+}
+
+.playlist-header h3 {
+    color: #1f2937;
+}
+
+.playlist-scroll-hint {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: #6b7280;
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.025em;
+}
+
+.playlist-scroll-hint .material-symbols-outlined {
+    font-size: 14px;
+}
+
+/* Hide scroll hint on mobile untuk save space */
+@media (max-width: 768px) {
+    .playlist-scroll-hint {
+        display: none;
+    }
+}

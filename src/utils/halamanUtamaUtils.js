@@ -44,9 +44,7 @@ function populateHero(halamanUtamaContent){
         // Set minimum height untuk memastikan konten tetap terbaca
         const minHeight = Math.max(calculatedHeight, 400);
         
-        heroContainer.style.height = `${minHeight}px`;
-        
-        console.log(`Image dimensions: ${img.width}x${img.height}, Aspect ratio: ${aspectRatio.toFixed(2)}, Container: ${containerWidth}x${minHeight}`);
+        heroContainer.style.height = `${minHeight}px`;        
     };
     
     img.src = imageUrl;

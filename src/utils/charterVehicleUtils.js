@@ -4,7 +4,7 @@ import { urlFor } from '../sanityClient.js';
 export function populateCharters(charters, whatsappTemplate){
     const charterCardsContainer = document.getElementById('charter-cards-container');
     const charterCardTemplate = document.getElementById('charter-card-template');
-    const charterCardFeatureTemplate = document.getElementById('charter-card-feature-template');
+    const charterCardFeatureTemplate = document.getElementById('card-feature-template');
 
     charterCardsContainer.innerHTML = '';
     charters.forEach(charter => {
@@ -28,15 +28,15 @@ export function populateCharters(charters, whatsappTemplate){
         charterCardClone.querySelector('.charter-card-vehicle-name').textContent = charter.vehicleName;
 
         //fitur
-        const charterCardFeaturesContainer = charterCardClone.querySelector('.charter-card-features-container');
+        const charterCardFeaturesContainer = charterCardClone.querySelector('.card-features-container');
         charterCardFeaturesContainer.innerHTML = ''
 
         if (charter.features) {
             charter.features.forEach(feature => {
                 const charterCardFeatureClone = charterCardFeatureTemplate.content.cloneNode(true);
                 
-                charterCardFeatureClone.querySelector('.charter-card-feature-icon').textContent = feature.icon;
-                charterCardFeatureClone.querySelector('.charter-card-feature-text').textContent = feature.text;
+                charterCardFeatureClone.querySelector('.card-feature-icon').textContent = feature.icon;
+                charterCardFeatureClone.querySelector('.card-feature-text').textContent = feature.text;
 
                 charterCardFeaturesContainer.appendChild(charterCardFeatureClone);
             });
