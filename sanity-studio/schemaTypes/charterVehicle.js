@@ -51,7 +51,7 @@ export default defineType({
       name: 'features',
       title: 'Fasilitas & Keunggulan Utama',
       type: 'array',
-      description: 'Tambahkan 3-4 poin keunggulan utama dari kendaraan ini. Ini akan ditampilkan di kartu.',
+      description: 'Tambahkan poin-poin keunggulan utama dari kendaraan ini. Ini akan ditampilkan di kartu.',
       of: [{
         type: 'object',
         name: 'featurePoint',
@@ -107,8 +107,6 @@ export default defineType({
           },
         }
       }],
-      // Anda bisa menambahkan validasi untuk membatasi jumlah fasilitas, misal maksimal 4
-      validation: Rule => Rule.max(4).warning('Sebaiknya tidak lebih dari 4 poin agar tampilan kartu tetap rapi.'),
     }),
   ],
 

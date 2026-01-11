@@ -180,12 +180,10 @@ export default defineType({
             title: 'Deskripsi Singkat',
             type: 'text',
             rows: 2,
-            validation: Rule => Rule.required(),
           }),
         ],
         preview: { select: { title: 'title', media: 'icon' } }
       }],
-      validation: Rule => Rule.length(3).error('Harus ada tepat 3 poin keunggulan.'),
     }),
   ],
 });
