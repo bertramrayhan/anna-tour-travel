@@ -153,7 +153,7 @@
                 <div class="relative bg-white min-h-[300px] md:min-h-[500px]">
 					<iframe
 					class="absolute inset-0 w-full h-full"
-					src="https://www.youtube.com/embed/gQV0s4vPTzI?autoplay=1&mute=1&loop=1&controls=0&modestbranding=1&rel=0&playsinline=1&playlist=gQV0s4vPTzI"
+					src="https://www.youtube.com/embed/gQV0s4vPTzI?autoplay=1&mute=1&loop=1&controls=0&modestbranding=1&rel=0&playsinline=1&playlist=gQV0s4vPTzI&enablejsapi=0"
 					title="Suasana perjalanan wisata Anna Tour"
 					frameborder="0"
 					allow="autoplay; encrypted-media"
@@ -165,6 +165,49 @@
                 </div>
             </div>
         </section>
+
+        <section class="w-full bg-gray-50 py-16 md:py-24" id="video-gallery">
+            <div class="max-w-7xl mx-auto px-4 md:px-10">
+                <!-- Judul Seksi -->
+                <div class="flex flex-col gap-3 mb-10 text-center">
+                    <h2 class="text-[#181510] text-3xl md:text-4xl font-bold">Galeri Perjalanan Kami</h2>
+                    <p class="text-[#8d7a5e] max-w-2xl mx-auto">Lihat langsung keseruan dan keindahan destinasi dalam video singkat perjalanan bersama pelanggan kami.</p>
+                </div>
+
+                <!-- Kontainer Utama: Grid untuk Player dan Playlist -->
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    
+                    <!-- Kolom Kiri: Video Player Utama -->
+                    <div class="lg:col-span-2 w-full aspect-video rounded-xl overflow-hidden shadow-2xl bg-black">
+                        <div id="main-video-player"></div>
+                    </div>
+
+                    <!-- Kolom Kanan: Playlist Thumbnail -->
+                    <div class="lg:col-span-1 flex flex-col gap-3 relative">
+                        <!-- Header Playlist -->
+                        <div class="playlist-header flex items-center justify-between px-1 mb-2">
+                            <h3 class="text-lg font-bold text-gray-800">Video Playlist</h3>
+                            <span class="playlist-scroll-hint text-xs text-gray-500 flex items-center gap-1">
+                                <span class="material-symbols-outlined text-sm">swipe_vertical</span>
+                                Scroll untuk lebih banyak
+                            </span>
+                        </div>
+                        
+                        <!-- Playlist Container dengan Custom Scrollbar -->
+                        <div class="playlist-scroll-container max-h-[400px] overflow-y-auto pr-2 relative">
+                            <!-- Kontainer untuk menampung item-item playlist dari JS -->
+                            <div id="video-playlist-container" class="flex flex-col gap-3">
+                                <!-- Items akan diisi oleh JavaScript -->
+                            </div>
+                        </div>
+                        
+                        <!-- Bottom Fade Indicator -->
+                        <div class="playlist-fade-indicator absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-gray-50 to-transparent pointer-events-none opacity-60 transition-opacity duration-300"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section class="max-w-7xl mx-auto w-full px-4 md:px-10 py-12" id="packages">
             <div class="flex flex-col gap-3 mb-10 text-center">
                 <h2 class="text-[#181510] text-3xl md:text-4xl font-bold">Paket Tour Populer Kami</h2>
@@ -364,8 +407,6 @@
         </footer>
     </div>
 
-    <script type="module" src="src/main.js"></script>
-
     <template id="poin-keunggulan-template">
         <div class="flex gap-4">
             <div class="flex-shrink-0 size-12 rounded-full bg-white/10 flex items-center justify-center text-white">
@@ -447,5 +488,19 @@
             </div>
         </div>
     </template>
+
+    <template id="video-playlist-item-template">
+        <div class="video-playlist-item group flex gap-4 p-3 rounded-lg cursor-pointer bg-white shadow-sm hover:bg-gray-100 transition-colors" data-video-id="">
+            <img src="" alt="" class="playlist-thumbnail w-28 h-16 object-cover rounded-md flex-shrink-0">
+            <div class="flex flex-col justify-center">
+                <h4 class="playlist-title font-bold text-sm text-gray-800 group-hover:text-primary leading-tight">Judul Video</h4>
+                <span class="now-playing-indicator hidden text-xs text-gray-500 mt-1">Now Playing</span>
+            </div>
+        </div>
+    </template>
+
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script type="module" src="src/main.js"></script>
+
 </body>
 </html>

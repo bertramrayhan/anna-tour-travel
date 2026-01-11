@@ -2,11 +2,19 @@ import { client } from './sanityClient.js';
 import { populateCharters } from './utils/charterVehicleUtils.js';
 import { populateHalamanUtama } from "./utils/halamanUtamaUtils.js";
 import { populateTourPackages } from './utils/tourPackageUtils.js';
+import { initVideoPlayer } from './utils/videoPlayer.js';
 
 export let nomorTelp = null; 
 
 async function getHalamanUtama() {
   const query = `*[_type == "halamanUtama"][0]`;
+
+  const content = await client.fetch(query);
+  return content;
+}
+
+async function getVideoGallery() {
+  const query = `*[_type == "videoGallery"]`;
 
   const content = await client.fetch(query);
   return content;
@@ -28,8 +36,9 @@ async function getCharter() {
 
 async function getContent(){
 	try {
-		const [halamanUtamaContent, tourPackagesData, chartersData] = await Promise.all([
+		const [halamanUtamaContent, videoGalleryData, tourPackagesData, chartersData] = await Promise.all([
 			getHalamanUtama(),
+			getVideoGallery(),
 			getTourPackages(),
 			getCharter()
 		]);
@@ -37,7 +46,8 @@ async function getContent(){
 		const content = {
 			halamanUtamaContent: halamanUtamaContent,
 			tourPackagesData: tourPackagesData,
-			chartersData: chartersData
+			chartersData: chartersData,
+			videoGalleryData: videoGalleryData
 		}
 
 		nomorTelp = halamanUtamaContent.nomor_telepon;
@@ -52,7 +62,8 @@ function loadContent(content){
 	const whatsappTemplate = content.halamanUtamaContent.whatsappTemplate;
 	populateHalamanUtama(content.halamanUtamaContent);
 	populateTourPackages(content.tourPackagesData, whatsappTemplate);
-	populateCharters(content.chartersData, whatsappTemplate);
+	populateCharters(content.chartersData, whatsappTemplate);	
+	initVideoPlayer(content.videoGalleryData);
 }
 
 function initMobileMenu() {
