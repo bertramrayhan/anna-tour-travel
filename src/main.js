@@ -1,6 +1,7 @@
 import { client } from './sanityClient.js';
 import { populateCharters } from './utils/charterVehicleUtils.js';
 import { populateHalamanUtama } from "./utils/halamanUtamaUtils.js";
+import { populateRegularTravels } from './utils/regularTravelUtils.js';
 import { populateTourPackages } from './utils/tourPackageUtils.js';
 import { initVideoPlayer } from './utils/videoPlayer.js';
 
@@ -34,19 +35,30 @@ async function getCharter() {
   return content;
 }
 
+async function getRegularTravel() {
+  const query = `*[_type == "regularTravel"] | order(isPopular desc, _createdAt desc)`;
+
+  const content = await client.fetch(query);
+  return content;
+}
+
 async function getContent(){
 	try {
-		const [halamanUtamaContent, videoGalleryData, tourPackagesData, chartersData] = await Promise.all([
+		const [halamanUtamaContent, videoGalleryData, tourPackagesData, chartersData, regularTravelsData] = await Promise.all([
 			getHalamanUtama(),
 			getVideoGallery(),
 			getTourPackages(),
-			getCharter()
+			getCharter(),
+			getRegularTravel()
 		]);
+
+		console.log(regularTravelsData)
 
 		const content = {
 			halamanUtamaContent: halamanUtamaContent,
 			tourPackagesData: tourPackagesData,
 			chartersData: chartersData,
+			regularTravelsData: regularTravelsData,
 			videoGalleryData: videoGalleryData
 		}
 
@@ -63,6 +75,7 @@ function loadContent(content){
 	populateHalamanUtama(content.halamanUtamaContent);
 	populateTourPackages(content.tourPackagesData, whatsappTemplate);
 	populateCharters(content.chartersData, whatsappTemplate);	
+	populateRegularTravels(content.regularTravelsData, whatsappTemplate);
 	initVideoPlayer(content.videoGalleryData);
 }
 
