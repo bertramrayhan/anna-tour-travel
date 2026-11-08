@@ -3,7 +3,7 @@ let videoData = [];
 let currentVideoIndex = 0;
 
 export function initVideoPlayer(videos) {
-  
+
   if (!videos || videos.length === 0) {
     const videoSection = document.getElementById('video-gallery');
     if (videoSection) videoSection.style.display = 'none';
@@ -42,18 +42,18 @@ export function initVideoPlayer(videos) {
 }
 
 function initializePlayer() {
-  
+
   player = new YT.Player('main-video-player', {
     height: '100%',
     width: '100%',
     videoId: videoData[0].videoId, // Sekarang videoId sudah pasti ada
     playerVars: {
-      autoplay: 1, 
-      mute: 1, 
+      autoplay: 1,
+      mute: 1,
       controls: 1, // Ubah ke 1 agar ada kontrol
       loop: 0,
-      modestbranding: 1, 
-      rel: 0, 
+      modestbranding: 1,
+      rel: 0,
       playsinline: 1
     },
     events: {
@@ -76,16 +76,16 @@ function onPlayerError(event) {
 function renderPlaylist() {
   const playlistContainer = document.getElementById('video-playlist-container');
   const playlistTemplate = document.getElementById('video-playlist-item-template');
-  
+
   if (!playlistContainer || !playlistTemplate) {
     console.error('Playlist container or template not found');
     return;
   }
-  
+
   playlistContainer.innerHTML = '';
 
   videoData.forEach((video, index) => {
-    
+
     const cardClone = playlistTemplate.content.cloneNode(true);
     const itemElement = cardClone.querySelector('.video-playlist-item');
     const thumbnail = itemElement.querySelector('.playlist-thumbnail');
@@ -108,10 +108,10 @@ function renderPlaylist() {
 
   // Update UI setelah render
   updatePlaylistUI();
-  
+
   // Initialize scroll effects untuk playlist
   initScrollEffects();
-  
+
   // Check scrollability dan add indicator
   setTimeout(() => {
     checkScrollability();
@@ -127,7 +127,7 @@ function onPlayerStateChange(event) {
 function playNextVideo() {
   currentVideoIndex = (currentVideoIndex + 1) % videoData.length;
   playVideo(currentVideoIndex);
-  
+
   // Auto-scroll ke video berikutnya setelah UI terupdate
   setTimeout(() => {
     scrollToCurrentVideo();
@@ -162,21 +162,21 @@ function updatePlaylistUI() {
       nowPlayingIndicator.classList.add('hidden');
     }
   });
-  
+
 }
 
 // Fungsi untuk mengelola scroll indicator dan fade effects
 function initScrollEffects() {
   const scrollContainer = document.querySelector('.playlist-scroll-container');
   const fadeIndicator = document.querySelector('.playlist-fade-indicator');
-  
+
   if (!scrollContainer || !fadeIndicator) return;
-  
+
   // Function untuk update fade indicator berdasarkan scroll position
   function updateFadeIndicator() {
     const { scrollTop, scrollHeight, clientHeight } = scrollContainer;
     const isScrolledToBottom = scrollTop + clientHeight >= scrollHeight - 5; // 5px tolerance
-    
+
     if (isScrolledToBottom) {
       scrollContainer.classList.add('scrolled-to-bottom');
       fadeIndicator.style.opacity = '0';
@@ -184,7 +184,7 @@ function initScrollEffects() {
       scrollContainer.classList.remove('scrolled-to-bottom');
       fadeIndicator.style.opacity = '0.6';
     }
-    
+
     // Jika ada cukup banyak item untuk di-scroll, tampilkan fade indicator
     if (scrollHeight > clientHeight) {
       fadeIndicator.style.display = 'block';
@@ -192,13 +192,13 @@ function initScrollEffects() {
       fadeIndicator.style.display = 'none';
     }
   }
-  
+
   // Listen scroll events
   scrollContainer.addEventListener('scroll', updateFadeIndicator);
-  
+
   // Initial check
   setTimeout(updateFadeIndicator, 100); // Delay untuk memastikan DOM sudah ter-render
-  
+
   // Re-check when window resizes
   window.addEventListener('resize', () => {
     setTimeout(() => {
@@ -212,25 +212,25 @@ function initScrollEffects() {
 function scrollToCurrentVideo() {
   const activeItem = document.querySelector('.video-playlist-item.active');
   const scrollContainer = document.querySelector('.playlist-scroll-container');
-  
+
   if (!activeItem || !scrollContainer) return;
-  
+
   const containerRect = scrollContainer.getBoundingClientRect();
   const itemRect = activeItem.getBoundingClientRect();
-  
+
   // Hitung posisi relatif item terhadap container
   const itemTop = activeItem.offsetTop;
   const containerScrollTop = scrollContainer.scrollTop;
   const containerHeight = scrollContainer.clientHeight;
   const itemHeight = activeItem.clientHeight;
-  
+
   // Tentukan apakah item berada di luar area visible
   const itemRelativeTop = itemTop - containerScrollTop;
   const itemRelativeBottom = itemRelativeTop + itemHeight;
-  
+
   let needsScroll = false;
   let targetScrollTop = containerScrollTop;
-  
+
   // Jika item di atas area visible
   if (itemRelativeTop < 0) {
     needsScroll = true;
@@ -241,7 +241,7 @@ function scrollToCurrentVideo() {
     needsScroll = true;
     targetScrollTop = itemTop - containerHeight + itemHeight + 10; // Padding 10px dari bawah
   }
-  
+
   if (needsScroll) {
     scrollContainer.scrollTo({
       top: targetScrollTop,
@@ -262,9 +262,9 @@ function playVideoEnhanced(index) {
 function checkScrollability() {
   const scrollContainer = document.querySelector('.playlist-scroll-container');
   if (!scrollContainer) return;
-  
+
   const hasScroll = scrollContainer.scrollHeight > scrollContainer.clientHeight;
-  
+
   if (hasScroll) {
     scrollContainer.classList.add('has-scroll');
   } else {
@@ -274,7 +274,7 @@ function checkScrollability() {
 
 // Fungsi helper untuk mengekstrak ID dari berbagai format URL YouTube
 function extractYouTubeID(url) {
-    const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+    const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|shorts\/|watch\?v=|\&v=)([^#\&\?]*).*/;
     const match = url.match(regExp);
     return (match && match[2].length === 11) ? match[2] : null;
 }
